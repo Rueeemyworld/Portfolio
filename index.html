@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Babe — Storyteller · Product Thinker · Knowledge Architect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAF8F4;--bg-alt:#F2EFE8;--bg-card:#FFF;--text:#1A1A18;--text-secondary:#6B6962;--text-muted:#9E9B93;--accent:#C4572A;--accent-light:#F4E8E2;--border:#E5E2DB;--border-light:#EDEAE4;--tag-bg:#EDEAE4;--font-display:'Crimson Pro','Noto Serif SC',serif;--font-body:'DM Sans','Noto Serif SC',sans-serif;--font-mono:'JetBrains Mono',monospace;--font-cn:'Noto Serif SC',serif;--max-w:1200px;--nav-h:64px}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;font-size:16px}body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.7;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:none;background:none}::selection{background:var(--accent-light);color:var(--accent)}
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(250,248,244,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border-light);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px)}
+.nav-logo{font-family:var(--font-display);font-size:20px;font-weight:700;letter-spacing:-0.5px}.nav-logo span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:28px}
+.nav-links{display:flex;gap:28px;list-style:none}.nav-links a{font-size:13px;font-weight:500;color:var(--text-secondary);letter-spacing:.5px;text-transform:uppercase;transition:color .2s;position:relative}.nav-links a:hover,.nav-links a.active{color:var(--text)}.nav-links a.active::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--accent)}
+.lang-toggle{display:flex;background:var(--bg-alt);border-radius:6px;padding:3px;gap:2px;border:1px solid var(--border-light)}.lang-btn{padding:4px 12px;font-size:12px;font-weight:600;font-family:var(--font-mono);color:var(--text-muted);border-radius:4px;transition:all .2s;letter-spacing:.5px}.lang-btn.active{background:var(--bg-card);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.06)}.lang-btn:hover:not(.active){color:var(--text-secondary)}
+.hero{min-height:100vh;display:flex;align-items:center;padding:calc(var(--nav-h) + 40px) clamp(24px,4vw,60px) 80px;max-width:var(--max-w);margin:0 auto;position:relative}.hero-content{max-width:800px}
+.hero-tag{font-family:var(--font-mono);font-size:12px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:32px;display:flex;align-items:center;gap:12px}.hero-tag::before{content:'';width:40px;height:1px;background:var(--accent)}
+.hero h1{font-family:var(--font-display);font-size:clamp(48px,7vw,80px);font-weight:300;line-height:1.15;letter-spacing:-2px;margin-bottom:32px}.hero h1 strong{font-weight:700;font-style:italic}.hero h1 .cn{font-family:var(--font-cn);font-weight:700;font-style:normal;letter-spacing:2px}
+.hero-desc{font-size:18px;color:var(--text-secondary);max-width:560px;line-height:1.8;margin-bottom:48px}.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;font-size:14px;font-weight:500;border-radius:6px;transition:all .2s}.btn-primary{background:var(--text);color:var(--bg)}.btn-primary:hover{background:var(--accent)}.btn-outline{border:1px solid var(--border);color:var(--text-secondary)}.btn-outline:hover{border-color:var(--text);color:var(--text)}
+.hero-aside{position:absolute;right:clamp(24px,4vw,60px);top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-family:var(--font-mono);font-size:11px;color:var(--text-muted);letter-spacing:3px}
+.section{padding:100px clamp(24px,4vw,60px);max-width:var(--max-w);margin:0 auto}.section-header{display:flex;align-items:baseline;gap:20px;margin-bottom:60px}.section-num{font-family:var(--font-mono);font-size:13px;color:var(--accent);letter-spacing:2px}.section-title{font-family:var(--font-display);font-size:36px;font-weight:300;letter-spacing:-1px}.section-title strong{font-weight:700}.section-line{flex:1;height:1px;background:var(--border)}
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px}
+.project-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:12px;overflow:hidden;transition:transform .3s,box-shadow .3s;cursor:pointer}.project-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.06)}
+.project-cover{height:200px;overflow:hidden}.cover-pattern{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.cover-1{background:linear-gradient(135deg,#1A1A18,#2D2B28)}.cover-2{background:linear-gradient(135deg,#C4572A,#E8845A)}.cover-3{background:linear-gradient(135deg,#2C4A3E,#4A7A68)}.cover-4{background:linear-gradient(135deg,#3D3266,#6B5BA7)}
+.cover-label{font-family:var(--font-mono);font-size:28px;font-weight:500;color:rgba(255,255,255,.9);letter-spacing:-.5px}.cover-label .sub{display:block;font-size:11px;font-weight:300;letter-spacing:3px;text-transform:uppercase;opacity:.5;margin-top:6px}
+.project-body{padding:24px 28px 28px}.project-type{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}.project-name{font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:10px;line-height:1.3}.project-desc{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px}.project-tags{display:flex;flex-wrap:wrap;gap:6px}.ptag{font-size:11px;padding:4px 10px;background:var(--tag-bg);border-radius:4px;color:var(--text-secondary);font-weight:500}
+.mini-chart{margin:16px 0 0;padding:16px;background:var(--bg-alt);border-radius:8px}.chart-bars{display:flex;align-items:flex-end;gap:4px;height:60px}.chart-bar{flex:1;background:var(--accent);border-radius:2px 2px 0 0;opacity:.6;transition:opacity .2s}.chart-bar:hover{opacity:1}.chart-label{font-family:var(--font-mono);font-size:10px;color:var(--text-muted);margin-top:8px;display:flex;justify-content:space-between}
+.kb-controls{display:flex;align-items:center;gap:16px;margin-bottom:32px;flex-wrap:wrap}.view-switcher{display:flex;background:var(--bg-alt);border-radius:8px;padding:4px;gap:2px}.view-btn{padding:8px 16px;font-size:13px;font-weight:500;color:var(--text-secondary);border-radius:6px;transition:all .2s}.view-btn.active{background:var(--bg-card);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.06)}.view-btn:hover:not(.active){color:var(--text)}
+.search-box{flex:1;min-width:200px;max-width:360px;position:relative}.search-box input{width:100%;padding:10px 16px 10px 40px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:var(--font-body);background:var(--bg-card);color:var(--text);outline:none;transition:border-color .2s}.search-box input:focus{border-color:var(--accent)}.search-box::before{content:'⌕';position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:16px;color:var(--text-muted)}
+.kb-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:32px}.kb-tag{font-size:12px;padding:5px 14px;border:1px solid var(--border);border-radius:20px;color:var(--text-secondary);font-weight:500;transition:all .2s;cursor:pointer}.kb-tag:hover,.kb-tag.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+.kb-view{display:none}.kb-view.active{display:block}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}.kb-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:10px;padding:24px;transition:all .2s;cursor:pointer}.kb-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.04)}.kb-card-cat{font-family:var(--font-mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}.kb-card-title{font-family:var(--font-display);font-size:19px;font-weight:700;margin-bottom:8px;line-height:1.4}.kb-card-excerpt{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:14px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.kb-card-meta{display:flex;justify-content:space-between;align-items:center}.kb-card-tags{display:flex;gap:4px;flex-wrap:wrap}.kb-card-tags span{font-size:11px;padding:2px 8px;background:var(--tag-bg);border-radius:3px;color:var(--text-muted)}.kb-card-date{font-family:var(--font-mono);font-size:11px;color:var(--text-muted)}
+.wiki-layout{display:grid;grid-template-columns:240px 1fr;gap:40px;min-height:500px}.wiki-sidebar{border-right:1px solid var(--border-light);padding-right:24px}.wiki-cat-title{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;margin-top:24px}.wiki-cat-title:first-child{margin-top:0}.wiki-link{display:block;padding:6px 12px;font-size:14px;color:var(--text-secondary);border-radius:6px;transition:all .15s;cursor:pointer;margin-bottom:2px}.wiki-link:hover{background:var(--bg-alt);color:var(--text)}.wiki-link.active{background:var(--accent-light);color:var(--accent);font-weight:500}
+.wiki-content{max-width:680px}.wiki-content h2{font-family:var(--font-display);font-size:32px;font-weight:700;margin-bottom:8px;letter-spacing:-.5px}.wiki-content .meta{font-family:var(--font-mono);font-size:12px;color:var(--text-muted);margin-bottom:24px;display:flex;gap:16px}.wiki-content .body{font-size:16px;line-height:1.9;color:var(--text-secondary)}.wiki-content .body p{margin-bottom:16px}.wiki-content .backlinks{margin-top:40px;padding-top:24px;border-top:1px solid var(--border-light)}.wiki-content .backlinks h4{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}.backlink-item{display:inline-block;padding:4px 12px;margin:0 6px 6px 0;background:var(--bg-alt);border-radius:4px;font-size:13px;color:var(--accent);cursor:pointer;transition:background .15s}.backlink-item:hover{background:var(--accent-light)}
+.garden-container{position:relative;background:var(--bg-card);border:1px solid var(--border-light);border-radius:12px;overflow:hidden;height:560px}#garden-canvas{width:100%;height:100%;cursor:grab}#garden-canvas:active{cursor:grabbing}.garden-tooltip{position:absolute;background:var(--text);color:var(--bg);padding:8px 14px;border-radius:6px;font-size:13px;font-weight:500;pointer-events:none;opacity:0;transition:opacity .15s;white-space:nowrap;z-index:10}.garden-legend{position:absolute;bottom:16px;left:16px;display:flex;gap:16px;font-size:11px;color:var(--text-muted)}.garden-legend-item{display:flex;align-items:center;gap:6px}.legend-dot{width:8px;height:8px;border-radius:50%}
+.blog-list{max-width:680px}.blog-item{padding:28px 0;border-bottom:1px solid var(--border-light);cursor:pointer;transition:padding-left .2s}.blog-item:hover{padding-left:8px}.blog-item:first-child{padding-top:0}.blog-date{font-family:var(--font-mono);font-size:12px;color:var(--text-muted);letter-spacing:1px;margin-bottom:8px}.blog-title{font-family:var(--font-display);font-size:24px;font-weight:700;margin-bottom:8px;line-height:1.3}.blog-excerpt{font-size:15px;color:var(--text-secondary);line-height:1.7;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);backdrop-filter:blur(4px);z-index:200;display:none;align-items:center;justify-content:center;padding:40px}.modal-overlay.open{display:flex}.modal{background:var(--bg);border-radius:16px;max-width:720px;width:100%;max-height:85vh;overflow-y:auto;padding:48px;position:relative}.modal-close{position:absolute;top:20px;right:20px;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--text-secondary);background:var(--bg-alt);transition:all .2s}.modal-close:hover{background:var(--border)}.modal h2{font-family:var(--font-display);font-size:32px;font-weight:700;margin-bottom:8px;line-height:1.3}.modal .meta{font-family:var(--font-mono);font-size:12px;color:var(--text-muted);margin-bottom:24px}.modal .content{font-size:16px;color:var(--text-secondary);line-height:1.9}.modal .content p{margin-bottom:16px}.modal .content strong{color:var(--text);font-weight:600}.modal .content .internal-link{color:var(--accent);text-decoration:underline;text-decoration-style:dashed;text-underline-offset:3px;cursor:pointer}.modal .note-links{margin-top:32px;padding-top:20px;border-top:1px solid var(--border-light)}.modal .note-links h4{font-size:12px;font-family:var(--font-mono);color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+footer{padding:60px clamp(24px,4vw,60px);max-width:var(--max-w);margin:0 auto;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}.footer-left{font-size:14px;color:var(--text-muted)}.footer-links{display:flex;gap:24px}.footer-links a{font-size:13px;color:var(--text-secondary);transition:color .2s}.footer-links a:hover{color:var(--accent)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}.animate-in{opacity:0;animation:fadeUp .7s ease forwards}.delay-1{animation-delay:.1s}.delay-2{animation-delay:.2s}.delay-3{animation-delay:.3s}.delay-4{animation-delay:.4s}
+@media(max-width:768px){.hero h1{font-size:40px;letter-spacing:-1px}.hero-aside{display:none}.portfolio-grid{grid-template-columns:1fr}.wiki-layout{grid-template-columns:1fr}.wiki-sidebar{border-right:none;border-bottom:1px solid var(--border-light);padding-right:0;padding-bottom:16px;display:flex;flex-wrap:wrap;gap:4px}.wiki-cat-title{width:100%;margin-top:12px}.nav-links{gap:12px}.nav-links a{font-size:11px}.nav-right{gap:12px}.modal{padding:28px;margin:16px}.cards-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#" class="nav-logo">B<span>.</span></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#portfolio" class="active" data-en="Portfolio" data-cn="作品集">Portfolio</a></li>
+      <li><a href="#knowledge" data-en="Knowledge" data-cn="知识库">Knowledge</a></li>
+      <li><a href="#about" data-en="About" data-cn="关于">About</a></li>
+      <li><a href="mailto:your@email.com" data-en="Contact" data-cn="联系">Contact</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="cn">中</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-tag animate-in">Storyteller · Product Thinker</div>
+    <h1 class="animate-in delay-1" id="hero-h1"></h1>
+    <p class="hero-desc animate-in delay-2" id="hero-desc"></p>
+    <div class="hero-ctas animate-in delay-3" id="hero-ctas"></div>
+  </div>
+  <div class="hero-aside">PHILADELPHIA · 2026</div>
+</section>
+
+<section class="section" id="portfolio">
+  <div class="section-header animate-in">
+    <span class="section-num">01</span>
+    <h2 class="section-title" id="portfolio-title"></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="portfolio-grid" id="portfolio-grid"></div>
+</section>
+
+<section class="section" id="knowledge">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title" id="knowledge-title"></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="kb-controls">
+    <div class="view-switcher">
+      <button class="view-btn active" data-view="cards">Cards</button>
+      <button class="view-btn" data-view="wiki">Wiki</button>
+      <button class="view-btn" data-view="garden">Garden</button>
+      <button class="view-btn" data-view="blog">Blog</button>
+    </div>
+    <div class="search-box"><input type="text" id="kb-search" placeholder="Search notes..." /></div>
+  </div>
+  <div class="kb-tags" id="kb-tags"></div>
+  <div class="kb-view active" id="view-cards"><div class="cards-grid" id="cards-grid"></div></div>
+  <div class="kb-view" id="view-wiki"><div class="wiki-layout"><div class="wiki-sidebar" id="wiki-sidebar"></div><div class="wiki-content" id="wiki-content"></div></div></div>
+  <div class="kb-view" id="view-garden"><div class="garden-container"><canvas id="garden-canvas"></canvas><div class="garden-tooltip" id="garden-tooltip"></div><div class="garden-legend" id="garden-legend"></div></div></div>
+  <div class="kb-view" id="view-blog"><div class="blog-list" id="blog-list"></div></div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title" id="about-title"></h2>
+    <div class="section-line"></div>
+  </div>
+  <div style="max-width:640px" id="about-body"></div>
+</section>
+
+<footer>
+  <div class="footer-left">Built with curiosity. Updated often.</div>
+  <div class="footer-links"><a href="#">Xiaohongshu</a><a href="#">GitHub</a><a href="#">LinkedIn</a><a href="mailto:your@email.com">Email</a></div>
+</footer>
+
+<div class="modal-overlay" id="modal-overlay"><div class="modal" id="modal"><button class="modal-close" id="modal-close">✕</button><div id="modal-content"></div></div></div>
+
+<script>
+let LANG='en';
+const UI={
+  en:{
+    heroH1:'I study why<br><strong>things fail</strong>,<br>and tell the story.',
+    heroDesc:'Product thinking meets AI startup case studies. Content strategy drives personal brand growth.<br>This is my portfolio and my digital garden.',
+    heroBtn1:'See my work →',heroBtn2:'Browse the garden',
+    portfolioTitle:'Selected <strong>Work</strong>',
+    knowledgeTitle:'Knowledge <strong>Garden</strong>',
+    aboutTitle:'About <strong>Me</strong>',
+    aboutP1:'I think in stories.',
+    aboutP2:"My background spans bilingual content creation (CN/EN), product analysis, and AI industry research. I believe the best product people are first and foremost great storytellers — translating complex industry logic into language everyone understands.",
+    aboutP3:"Currently exploring product opportunities in AI social/dating, while building a personal brand on Xiaohongshu. If you're doing AI startups and need someone who understands both product and narrative — let's talk.",
+    aboutBtn1:'Send me an email →',aboutBtn2:'Xiaohongshu',aboutBtn3:'LinkedIn',
+    searchPH:'Search notes...',
+    wikiDefault:'Select a note',wikiDefaultMeta:'Choose from the sidebar',wikiDefaultBody:'Click any note title to start reading. Notes are interlinked, forming a knowledge network.',
+    relatedNotes:'Related notes',referencedBy:'Referenced by',
+    catProduct:'Product',catCreative:'Creative',catThinking:'Thinking',catTech:'Tech'
+  },
+  cn:{
+    heroH1:'I study why<br><strong>things fail</strong>,<br><span class="cn">然后讲给你听。</span>',
+    heroDesc:'产品思维拆解 AI 创业案例，内容策略驱动个人品牌增长。<br>这里是我的作品集，也是我的数字花园。',
+    heroBtn1:'看我的作品 →',heroBtn2:'逛知识花园',
+    portfolioTitle:'精选<strong>作品</strong>',
+    knowledgeTitle:'知识<strong>花园</strong>',
+    aboutTitle:'关于<strong>我</strong>',
+    aboutP1:'我是一个用故事思考的人。',
+    aboutP2:'背景横跨中英文内容创作、产品分析和AI行业研究。我相信好的产品人首先是好的storyteller——能把复杂的行业逻辑翻译成人人听得懂的语言。',
+    aboutP3:'目前正在探索AI社交/约会赛道的产品机会，同时在小红书上建立个人品牌。如果你在做AI创业、需要一个既懂产品又会讲故事的人，我们聊聊。',
+    aboutBtn1:'写封邮件 →',aboutBtn2:'小红书',aboutBtn3:'LinkedIn',
+    searchPH:'搜索笔记...',
+    wikiDefault:'选择一篇笔记',wikiDefaultMeta:'从左侧目录中选择',wikiDefaultBody:'点击左侧任意笔记标题开始阅读。笔记之间互相链接，形成知识网络。',
+    relatedNotes:'相关笔记',referencedBy:'引用了此笔记',
+    catProduct:'产品',catCreative:'创作',catThinking:'思考',catTech:'技术'
+  }
+};
+const CAT_COLORS={Product:'#C4572A',Creative:'#4A7A68',Thinking:'#6B5BA7',Tech:'#C49A2A'};
+function catD(k){return UI[LANG]['cat'+k]}
+function t(o){return typeof o==='string'?o:(o[LANG]||o.en)}
+
+const PROJECTS=[
+  {cover:'cover-1',label:{en:'AI Death Note',cn:'AI 死亡笔记'},sub:'Content Series',type:'GTM · Content Strategy',name:{en:'AI Death Note: AI Startup Failure Case Studies',cn:'AI 死亡笔记：AI创业失败案例连载'},desc:{en:'Xiaohongshu series dissecting real AI startup failures. Using storytelling for precision user acquisition.',cn:'小红书图文连载，每期拆解一个真实AI创业失败案例。用storytelling驱动精准获客。'},tags:{en:['Xiaohongshu','AI','Startup Analysis','GTM'],cn:['小红书','AI','创业分析','GTM']},chart:[20,35,30,55,70,65,90,85],cc:null,cl:{en:['EP.01','Impressions →','EP.08'],cn:['EP.01','曝光增长 →','EP.08']}},
+  {cover:'cover-2',label:{en:'AI似寂寞人',cn:'AI似寂寞人'},sub:'Serialized Novel',type:'Creative Writing · Product Thinking',name:{en:'AI似寂寞人: A 10-Chapter Serialized Novel',cn:'AI似寂寞人：10章连载中文小说'},desc:{en:'A Chinese novel about AI and human emotional connection, designed to attract AI/dating app founders and PMs.',cn:'关于AI与人类情感连接的中文连载小说，目标是吸引AI/约会App创始人和PM群体。'},tags:{en:['Fiction','Chinese Writing','AI Philosophy','Content Marketing'],cn:['小说','中文创作','AI哲学','内容营销']},chart:null},
+  {cover:'cover-3',label:{en:'PRD Lab',cn:'PRD Lab'},sub:'Product Analysis',type:'Product Management · Analysis',name:{en:'AI Dating App Product Teardowns',cn:'AI约会App产品拆解'},desc:{en:'Deep-dive analysis of AI dating products: user flows, retention, cold-start strategies, and monetization. PRD-grade frameworks.',cn:'深度分析AI约会产品：用户流程、留存、冷启动策略和变现模型。PRD级框架拆解。'},tags:{en:['PRD','User Research','Competitive Analysis','Dating'],cn:['PRD','用户研究','竞品分析','Dating']},chart:null},
+  {cover:'cover-4',label:{en:'Data Stories',cn:'Data Stories'},sub:'Visualization',type:'Data Visualization · Storytelling',name:{en:'Content Growth Data Visualization',cn:'自媒体增长数据可视化'},desc:{en:'Turning content operations data into visual stories: how content strategy shapes growth curves.',cn:'将自媒体运营数据转化为可视化故事：内容策略如何影响增长曲线。'},tags:{en:['Data Viz','Growth','Content Strategy'],cn:['数据可视化','增长','内容策略']},chart:[45,40,60,55,80,95,75,100],cc:'#6B5BA7',cl:{en:['Week 1','Engagement →','Week 8'],cn:['第1周','互动率 →','第8周']}}
+];
+
+const NOTES=[
+  {id:'cold-start',cat:'Product',title:{en:'The Cold Start Problem: Life or Death for Dating Apps',cn:'冷启动问题：约会App的生死线'},tags:{en:['Cold Start','Growth','Dating Apps','Network Effects'],cn:['冷启动','增长','约会App','网络效应']},date:'2026-03-20',excerpt:{en:'No users means no matches, no matches means no retention. The classic chicken-and-egg problem and how AIMM, Tinder, and Bumble each tried to break through.',cn:'没有用户就没有匹配，没有匹配就留不住用户。约会App面临的经典鸡生蛋问题。'},content:{en:'<p>The cold start problem in dating apps is among the most brutal in all two-sided markets.</p><p><strong>Core paradox</strong>: not enough users → low match quality → churn → even fewer users. Once this death spiral starts, it\'s nearly irreversible.</p><p>Tinder\'s solution was the <span class="internal-link" data-link="tinder-campus">campus party strategy</span>. Bumble used women-first mechanics.</p><p>AIMM failed because it tried to use AI quality to compensate for insufficient quantity, but the <span class="internal-link" data-link="ai-matching-paradox">AI matching paradox</span> tells us — you can\'t fish in an empty pond.</p><p><strong>Key lesson</strong>: The battleground is distribution, not algorithms.</p>',cn:'<p>约会App的冷启动是所有双边市场中最残酷的一种。</p><p><strong>核心矛盾</strong>：没有足够多的异性用户 → 匹配质量低 → 用户流失 → 更少的用户。</p><p>Tinder的解法是 <span class="internal-link" data-link="tinder-campus">校园派对策略</span>。Bumble靠女性优先机制。</p><p>AIMM试图用AI质量弥补用户数量不足，但 <span class="internal-link" data-link="ai-matching-paradox">AI匹配悖论</span> 告诉我们——池子里没鱼也钓不上来。</p><p><strong>关键教训</strong>：战场在distribution，不在algorithm。</p>'},links:['tinder-campus','ai-matching-paradox','aimm-case']},
+  {id:'ai-matching-paradox',cat:'Thinking',title:{en:'The AI Matching Paradox: Better Algorithms, Worse Experience?',cn:'AI匹配悖论：算法越好，体验越差？'},tags:{en:['AI','Matching Algorithm','Product Philosophy'],cn:['AI','匹配算法','产品哲学']},date:'2026-03-18',excerpt:{en:'When AI makes matching hyper-precise, users might actually be less satisfied — they want discovery, not optimization.',cn:'当AI把匹配做到极致精准，用户反而可能更不满意——人类想要的不是"最优解"，而是"发现的快感"。'},content:{en:'<p>A counterintuitive observation: users say they want "precise matching" but behaviorally prefer "unexpected discovery."</p><p>This is exactly the mistake <span class="internal-link" data-link="aimm-case">AIMM</span> made — too many decisions for users. A textbook case of <span class="internal-link" data-link="product-paternalism">paternalistic design</span>.</p>',cn:'<p>一个反直觉的观察：用户嘴上说要"精准匹配"，行为上却更享受"意外发现"。</p><p>这也是 <span class="internal-link" data-link="aimm-case">AIMM</span> 犯的错——替用户做了太多决定。<span class="internal-link" data-link="product-paternalism">父权式设计</span> 的典型案例。</p>'},links:['cold-start','aimm-case','product-paternalism']},
+  {id:'aimm-case',cat:'Product',title:{en:'AIMM Post-Mortem: From Downey Documentary to Obscurity',cn:'AIMM案例复盘：从唐尼纪录片到无人问津'},tags:{en:['Case Study','AIMM','Dating App','Failure'],cn:['案例分析','AIMM','约会App','失败']},date:'2026-03-15',excerpt:{en:'Featured on CNN, Fox, and Robert Downey Jr.\'s documentary — so why did this AI matchmaker still die?',cn:'上了CNN、Fox、唐尼纪录片的AI媒人App，为什么还是死了？'},content:{en:'<p>AIMM was created in 2016 by Denver programmer Kevin Teman.</p><p><strong>Three fatal mistakes</strong>:</p><p>1. <span class="internal-link" data-link="cold-start">Cold start</span> — 3 years, still only in Denver.</p><p>2. <span class="internal-link" data-link="indie-dev-trap">Indie dev trap</span> — no funding = no marketing = no growth.</p><p>3. <span class="internal-link" data-link="product-paternalism">Anti-human design</span> — forced a week-long onboarding; gender-biased UX.</p><p><strong>Core lesson</strong>: Tech isn\'t the moat. Distribution is.</p>',cn:'<p>AIMM是2016年Denver程序员Kevin Teman创建的语音AI媒人App。</p><p><strong>三个致命错误</strong>：</p><p>1. <span class="internal-link" data-link="cold-start">冷启动</span>——3年没走出Denver。</p><p>2. <span class="internal-link" data-link="indie-dev-trap">独立开发者陷阱</span>——没融资=没增长。</p><p>3. <span class="internal-link" data-link="product-paternalism">产品设计反人性</span>——要求一周onboarding，性别歧视设计。</p><p><strong>核心教训</strong>：技术不是壁垒，分发才是。</p>'},links:['cold-start','ai-matching-paradox','product-paternalism','indie-dev-trap']},
+  {id:'product-paternalism',cat:'Thinking',title:{en:'Paternalism in Product Design: When AI Decides for You',cn:'产品设计中的父权主义：当AI替你做决定'},tags:{en:['Product Design','UX','AI Ethics'],cn:['产品设计','UX','AI伦理']},date:'2026-03-12',excerpt:{en:'AIMM wouldn\'t let women reject matches. Where\'s the line between personalization and control?',cn:'AIMM不让女性拒绝匹配——产品替用户做决定的边界在哪？'},content:{en:'<p>Good recommendation systems give you choices. Bad ones make choices for you.</p><p>The best AI products <span class="internal-link" data-link="ai-matching-paradox">expand possibilities</span> rather than narrow them.</p>',cn:'<p>好的推荐系统给你选择，坏的推荐系统替你选择。</p><p>最好的AI产品是那些 <span class="internal-link" data-link="ai-matching-paradox">扩展可能性</span> 而不是收窄可能性的产品。</p>'},links:['ai-matching-paradox','aimm-case']},
+  {id:'tinder-campus',cat:'Product',title:{en:'Tinder\'s Campus Strategy: The Cold Start Playbook',cn:'Tinder校园策略：冷启动教科书'},tags:{en:['Tinder','Cold Start','Growth Strategy'],cn:['Tinder','冷启动','增长策略']},date:'2026-03-08',excerpt:{en:'How Tinder went from zero to full US campus coverage in one year. Density before scale.',cn:'Tinder怎么一年内覆盖全美校园？密度优先于规模。'},content:{en:'<p>Tinder\'s core: <strong>density before scale</strong>. Focus on one campus (USC), create density, then expand.</p><p>This aligns with <span class="internal-link" data-link="cold-start">cold start theory</span>. AIMM failed because it scattered sand across the ocean.</p>',cn:'<p>Tinder的核心：<strong>密度优先于规模</strong>。聚焦USC一个校园，制造密度，再外扩。</p><p>这跟 <span class="internal-link" data-link="cold-start">冷启动理论</span> 完全吻合。AIMM的失败是因为在大海里撒了一把沙。</p>'},links:['cold-start','aimm-case']},
+  {id:'indie-dev-trap',cat:'Thinking',title:{en:'The Indie Dev Trap: Technical Ability ≠ Startup Ability',cn:'独立开发者陷阱：技术能力 ≠ 创业能力'},tags:{en:['Indie Dev','Startup','Fundraising','Growth'],cn:['独立开发者','创业','融资','增长']},date:'2026-03-05',excerpt:{en:'Knowing how to code doesn\'t mean knowing how to build a company. AIMM\'s founder reveals the classic dilemma.',cn:'会写代码不等于会做公司。AIMM创始人揭示了独立开发者创业的典型困境。'},content:{en:'<p>Kevin Teman was a good programmer but not a good entrepreneur.</p><p>No funding = no marketing = no growth. Media coverage ≠ user retention. Same story as <span class="internal-link" data-link="cold-start">cold start</span>.</p>',cn:'<p>Kevin Teman是个好程序员，但不是好的创业者。</p><p>没融资=没市场预算=没增长。媒体曝光 ≠ 用户留存。跟 <span class="internal-link" data-link="cold-start">冷启动</span> 是一回事。</p>'},links:['aimm-case','cold-start']},
+  {id:'swipe-fatigue',cat:'Product',title:{en:'Swipe Fatigue: The Structural Crisis in Dating Apps',cn:'Swipe Fatigue：约会App行业的结构性危机'},tags:{en:['Dating Apps','Industry Analysis','UX'],cn:['约会App','行业分析','用户体验']},date:'2026-02-28',excerpt:{en:'75% of users feel burnout. Tinder lost 1.5M+ paying users from peak. The swiping paradigm may be obsolete.',cn:'75%用户感到倦怠，Tinder付费用户从峰值下降150万+。滑动范式可能已过时。'},content:{en:'<p>Over 75% of dating app users experience swipe fatigue. The <span class="internal-link" data-link="ai-matching-paradox">AI matching paradox</span> reminds us: the solution may not be better algorithms, but an entirely different interaction model.</p>',cn:'<p>超过75%的约会App用户体验到"滑动倦怠"。<span class="internal-link" data-link="ai-matching-paradox">AI匹配悖论</span> 提醒我们：解决方案可能不在于更好的算法，而在于完全不同的交互方式。</p>'},links:['ai-matching-paradox','cold-start']},
+  {id:'content-as-gtm',cat:'Creative',title:{en:'Content as GTM: Growing Through Stories',cn:'内容即GTM：用故事做增长'},tags:{en:['GTM','Content Strategy','Growth','Personal Brand'],cn:['GTM','内容策略','增长','个人品牌']},date:'2026-02-20',excerpt:{en:'No paid acquisition? Use content itself as your go-to-market strategy.',cn:'不花钱买量，用内容本身作为go-to-market策略。'},content:{en:'<p><strong>Core hypothesis</strong>: High-quality analysis content is itself the best acquisition channel.</p><p>This contrasts with the <span class="internal-link" data-link="indie-dev-trap">indie developer</span> dilemma — AIMM had tech but no distribution.</p>',cn:'<p><strong>核心假设</strong>：高质量的行业分析内容，本身就是最好的获客渠道。</p><p>这跟 <span class="internal-link" data-link="indie-dev-trap">独立开发者</span> 的困境形成对比——AIMM有技术没分发。</p>'},links:['indie-dev-trap','aimm-case']},
+  {id:'bilingual-brand',cat:'Creative',title:{en:'Building a Bilingual Personal Brand',cn:'双语个人品牌：在中英文之间找到声音'},tags:{en:['Personal Brand','Bilingual','Writing'],cn:['个人品牌','双语','写作']},date:'2026-02-15',excerpt:{en:'As a bilingual creator, how do you switch languages without losing your voice?',cn:'作为中英双语创作者，如何在两种语言之间切换而不失去风格？'},content:{en:'<p>Bilingual creation isn\'t translation — it\'s <strong>telling different facets of the same story in different languages</strong>.</p>',cn:'<p>双语创作不是翻译，是<strong>用不同的语言讲同一个故事的不同面</strong>。</p>'},links:['content-as-gtm']},
+  {id:'ai-loneliness',cat:'Thinking',title:{en:'The More Advanced the Tech, the Lonelier We Get?',cn:'技术越发达，人越孤独？'},tags:{en:['AI','Loneliness','Philosophy','Social'],cn:['AI','孤独','哲学','社交']},date:'2026-02-10',excerpt:{en:'When AI can perfectly simulate companionship, do we still need real human connection?',cn:'当AI可以完美模拟陪伴，我们还需要真人连接吗？'},content:{en:'<p>Central thesis: <strong>Is technology connecting us, or replacing connection itself?</strong></p><p><strong>Imperfection IS the essence of connection.</strong> The friction, misunderstandings, and repair — the parts AI can\'t simulate — are what make us human.</p>',cn:'<p>核心命题：<strong>技术究竟是在连接人，还是在替代连接本身？</strong></p><p><strong>不完美才是连接的本质</strong>。关系中的摩擦、误解、修复——这些AI无法模拟的部分，才是让我们成为人的东西。</p>'},links:['ai-matching-paradox','product-paternalism']}
+];
+
+let currentView='cards',activeTag=null,searchQuery='',selectedWikiNote=null;
+
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>{
+    LANG=b.dataset.lang;
+    document.querySelectorAll('.lang-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.documentElement.lang=LANG==='en'?'en':'zh';
+    renderAll();
+  }));
+  renderAll();
+  document.querySelectorAll('.view-btn').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('.view-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.querySelectorAll('.kb-view').forEach(v=>v.classList.remove('active'));
+    currentView=b.dataset.view;
+    document.getElementById('view-'+currentView).classList.add('active');
+    if(currentView==='garden')setTimeout(renderGarden,50);
+  }));
+  document.getElementById('kb-search').addEventListener('input',e=>{searchQuery=e.target.value;renderKB()});
+  document.getElementById('kb-tags').addEventListener('click',e=>{if(e.target.classList.contains('kb-tag')){const tg=e.target.dataset.tag;activeTag=activeTag===tg?null:tg;renderKB()}});
+  document.getElementById('modal-overlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal()});
+  document.getElementById('modal-close').addEventListener('click',closeModal);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+  const secs=['portfolio','knowledge','about'];const lnks=document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll',()=>{let c='';secs.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<200)c=id});lnks.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+c)l.classList.add('active')})});
+});
+
+function renderAll(){
+  const u=UI[LANG];
+  // Static text
+  document.querySelectorAll('[data-en]').forEach(el=>{el.textContent=el.getAttribute('data-'+LANG)});
+  document.getElementById('hero-h1').innerHTML=u.heroH1;
+  document.getElementById('hero-desc').innerHTML=u.heroDesc;
+  document.getElementById('hero-ctas').innerHTML='<a href="#portfolio" class="btn btn-primary">'+u.heroBtn1+'</a><a href="#knowledge" class="btn btn-outline">'+u.heroBtn2+'</a>';
+  document.getElementById('portfolio-title').innerHTML=u.portfolioTitle;
+  document.getElementById('knowledge-title').innerHTML=u.knowledgeTitle;
+  document.getElementById('about-title').innerHTML=u.aboutTitle;
+  document.getElementById('kb-search').placeholder=u.searchPH;
+  // Wiki default
+  const wc=document.getElementById('wiki-content');
+  if(!selectedWikiNote)wc.innerHTML='<h2>'+u.wikiDefault+'</h2><div class="meta">'+u.wikiDefaultMeta+'</div><div class="body"><p>'+u.wikiDefaultBody+'</p></div>';
+  // About
+  document.getElementById('about-body').innerHTML='<p style="font-size:18px;line-height:1.9;color:var(--text-secondary);margin-bottom:20px">'+u.aboutP1+'</p><p style="font-size:16px;line-height:1.9;color:var(--text-secondary);margin-bottom:20px">'+u.aboutP2+'</p><p style="font-size:16px;line-height:1.9;color:var(--text-secondary);margin-bottom:32px">'+u.aboutP3+'</p><div style="display:flex;gap:12px;flex-wrap:wrap"><a href="mailto:your@email.com" class="btn btn-primary">'+u.aboutBtn1+'</a><a href="#" class="btn btn-outline">'+u.aboutBtn2+'</a><a href="#" class="btn btn-outline">'+u.aboutBtn3+'</a></div>';
+  // Garden legend
+  document.getElementById('garden-legend').innerHTML=Object.entries(CAT_COLORS).map(([k,v])=>'<div class="garden-legend-item"><div class="legend-dot" style="background:'+v+'"></div> '+catD(k)+'</div>').join('');
+  renderProjects();
+  renderKB();
+  if(selectedWikiNote)selectWikiNote(selectedWikiNote);
+}
+
+function renderProjects(){
+  document.getElementById('portfolio-grid').innerHTML=PROJECTS.map((p,i)=>{
+    let ch='';
+    if(p.chart){const c=p.cc?'background:'+p.cc:'';const lb=t(p.cl);ch='<div class="mini-chart"><div class="chart-bars">'+p.chart.map(h=>'<div class="chart-bar" style="height:'+h+'%;'+c+'"></div>').join('')+'</div><div class="chart-label"><span>'+lb[0]+'</span><span>'+lb[1]+'</span><span>'+lb[2]+'</span></div></div>'}
+    return '<div class="project-card animate-in delay-'+(i+1)+'"><div class="project-cover"><div class="cover-pattern '+p.cover+'"><div class="cover-label">'+t(p.label)+'<span class="sub">'+p.sub+'</span></div></div></div><div class="project-body"><div class="project-type">'+p.type+'</div><div class="project-name">'+t(p.name)+'</div><div class="project-desc">'+t(p.desc)+'</div>'+ch+'<div class="project-tags">'+t(p.tags).map(tg=>'<span class="ptag">'+tg+'</span>').join('')+'</div></div></div>'
+  }).join('');
+}
+
+function renderKB(){renderTags();renderCards();renderWikiSidebar();renderBlog()}
+function filtered(){return NOTES.filter(n=>{const tgs=t(n.tags);const mt=!activeTag||tgs.includes(activeTag);const q=searchQuery.toLowerCase();const ms=!q||t(n.title).toLowerCase().includes(q)||t(n.excerpt).toLowerCase().includes(q)||tgs.some(x=>x.toLowerCase().includes(q));return mt&&ms})}
+function allTags(){const s=new Set();NOTES.forEach(n=>t(n.tags).forEach(x=>s.add(x)));return Array.from(s).sort()}
+function renderTags(){document.getElementById('kb-tags').innerHTML=allTags().map(tg=>'<button class="kb-tag'+(activeTag===tg?' active':'')+'" data-tag="'+tg+'">'+tg+'</button>').join('')}
+function renderCards(){document.getElementById('cards-grid').innerHTML=filtered().map(n=>'<div class="kb-card" onclick="openNote(\''+n.id+'\')"><div class="kb-card-cat" style="color:'+CAT_COLORS[n.cat]+'">'+catD(n.cat)+'</div><div class="kb-card-title">'+t(n.title)+'</div><div class="kb-card-excerpt">'+t(n.excerpt)+'</div><div class="kb-card-meta"><div class="kb-card-tags">'+t(n.tags).slice(0,3).map(x=>'<span>'+x+'</span>').join('')+'</div><div class="kb-card-date">'+n.date+'</div></div></div>').join('')}
+function renderWikiSidebar(){const ns=filtered();const cs={};ns.forEach(n=>{if(!cs[n.cat])cs[n.cat]=[];cs[n.cat].push(n)});document.getElementById('wiki-sidebar').innerHTML=Object.entries(cs).map(([c,items])=>'<div class="wiki-cat-title">'+catD(c)+'</div>'+items.map(n=>'<div class="wiki-link'+(selectedWikiNote===n.id?' active':'')+'" onclick="selectWikiNote(\''+n.id+'\')">'+t(n.title)+'</div>').join('')).join('')}
+function selectWikiNote(id){selectedWikiNote=id;const n=NOTES.find(x=>x.id===id);if(!n)return;const bl=NOTES.filter(x=>x.links&&x.links.includes(id));const u=UI[LANG];document.getElementById('wiki-content').innerHTML='<h2>'+t(n.title)+'</h2><div class="meta"><span style="color:'+CAT_COLORS[n.cat]+'">'+catD(n.cat)+'</span><span>'+n.date+'</span><span>'+t(n.tags).join(' · ')+'</span></div><div class="body">'+t(n.content)+'</div>'+(bl.length?'<div class="backlinks"><h4>'+u.referencedBy+'</h4>'+bl.map(b=>'<span class="backlink-item" onclick="selectWikiNote(\''+b.id+'\')">'+t(b.title)+'</span>').join('')+'</div>':'');document.querySelectorAll('#wiki-content .internal-link').forEach(l=>l.addEventListener('click',()=>selectWikiNote(l.dataset.link)));renderWikiSidebar()}
+function renderBlog(){document.getElementById('blog-list').innerHTML=filtered().sort((a,b)=>new Date(b.date)-new Date(a.date)).map(n=>'<div class="blog-item" onclick="openNote(\''+n.id+'\')"><div class="blog-date">'+n.date+' · '+catD(n.cat)+'</div><div class="blog-title">'+t(n.title)+'</div><div class="blog-excerpt">'+t(n.excerpt)+'</div></div>').join('')}
+
+function renderGarden(){const cv=document.getElementById('garden-canvas'),ctx=cv.getContext('2d'),ct=cv.parentElement,tt=document.getElementById('garden-tooltip');cv.width=ct.clientWidth*2;cv.height=ct.clientHeight*2;cv.style.width=ct.clientWidth+'px';cv.style.height=ct.clientHeight+'px';ctx.scale(2,2);const W=ct.clientWidth,H=ct.clientHeight;const nodes=NOTES.map((n,i)=>{const a=(i/NOTES.length)*Math.PI*2,r=140+Math.random()*80;return{...n,x:W/2+Math.cos(a)*r+(Math.random()-.5)*60,y:H/2+Math.sin(a)*r+(Math.random()-.5)*60,r:8+(n.links?n.links.length*3:0),vx:0,vy:0}});for(let it=0;it<80;it++)for(let i=0;i<nodes.length;i++){for(let j=i+1;j<nodes.length;j++){const dx=nodes[j].x-nodes[i].x,dy=nodes[j].y-nodes[i].y,d=Math.sqrt(dx*dx+dy*dy)||1,f=800/(d*d);nodes[i].vx-=(dx/d)*f;nodes[i].vy-=(dy/d)*f;nodes[j].vx+=(dx/d)*f;nodes[j].vy+=(dy/d)*f}nodes[i].vx+=(W/2-nodes[i].x)*.002;nodes[i].vy+=(H/2-nodes[i].y)*.002;if(nodes[i].links)nodes[i].links.forEach(lid=>{const l=nodes.find(x=>x.id===lid);if(l){nodes[i].vx+=(l.x-nodes[i].x)*.003;nodes[i].vy+=(l.y-nodes[i].y)*.003}});nodes[i].x+=nodes[i].vx*.3;nodes[i].y+=nodes[i].vy*.3;nodes[i].vx*=.85;nodes[i].vy*=.85;nodes[i].x=Math.max(60,Math.min(W-60,nodes[i].x));nodes[i].y=Math.max(50,Math.min(H-50,nodes[i].y))}ctx.clearRect(0,0,W,H);nodes.forEach(n=>{if(n.links)n.links.forEach(lid=>{const tg=nodes.find(x=>x.id===lid);if(tg){ctx.beginPath();ctx.moveTo(n.x,n.y);ctx.lineTo(tg.x,tg.y);ctx.strokeStyle='rgba(0,0,0,.06)';ctx.lineWidth=1;ctx.stroke()}})});nodes.forEach(n=>{ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle=CAT_COLORS[n.cat]||'#888';ctx.globalAlpha=.8;ctx.fill();ctx.globalAlpha=1;ctx.fillStyle='#1A1A18';ctx.font='500 11px "DM Sans",sans-serif';ctx.textAlign='center';const lb=t(n.title);ctx.fillText(lb.length>16?lb.slice(0,15)+'…':lb,n.x,n.y+n.r+16)});cv.onmousemove=e=>{const r=cv.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;let h=null;nodes.forEach(n=>{if(Math.sqrt((mx-n.x)**2+(my-n.y)**2)<n.r+4)h=n});if(h){tt.textContent=t(h.title);tt.style.left=(h.x+16)+'px';tt.style.top=(h.y-16)+'px';tt.style.opacity=1;cv.style.cursor='pointer'}else{tt.style.opacity=0;cv.style.cursor='grab'}};cv.onclick=e=>{const r=cv.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;nodes.forEach(n=>{if(Math.sqrt((mx-n.x)**2+(my-n.y)**2)<n.r+4)openNote(n.id)})}}
+
+function openNote(id){const n=NOTES.find(x=>x.id===id);if(!n)return;const bl=NOTES.filter(x=>x.links&&x.links.includes(id));const u=UI[LANG];document.getElementById('modal-content').innerHTML='<h2>'+t(n.title)+'</h2><div class="meta" style="color:'+CAT_COLORS[n.cat]+'">'+catD(n.cat)+' · '+n.date+' · '+t(n.tags).join(' · ')+'</div><div class="content">'+t(n.content)+'</div>'+(n.links&&n.links.length?'<div class="note-links"><h4>'+u.relatedNotes+'</h4>'+n.links.map(lid=>{const l=NOTES.find(x=>x.id===lid);return l?'<span class="backlink-item" onclick="openNote(\''+lid+'\')">'+t(l.title)+'</span>':''}).join('')+'</div>':'')+(bl.length?'<div class="note-links" style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border-light)"><h4>'+u.referencedBy+'</h4>'+bl.map(b=>'<span class="backlink-item" onclick="openNote(\''+b.id+'\')">'+t(b.title)+'</span>').join('')+'</div>':'');document.querySelectorAll('#modal-content .internal-link').forEach(l=>l.addEventListener('click',()=>openNote(l.dataset.link)));document.getElementById('modal-overlay').classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(){document.getElementById('modal-overlay').classList.remove('open');document.body.style.overflow=''}
+</script>
+</body>
+</html>
