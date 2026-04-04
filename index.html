@@ -25,7 +25,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(250,
 .project-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:12px;overflow:hidden;transition:transform .3s,box-shadow .3s;cursor:pointer}.project-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.06)}
 .project-cover{height:200px;overflow:hidden}.cover-pattern{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.cover-1{background:linear-gradient(135deg,#1A1A18,#2D2B28)}.cover-2{background:linear-gradient(135deg,#C4572A,#E8845A)}.cover-3{background:linear-gradient(135deg,#2C4A3E,#4A7A68)}.cover-4{background:linear-gradient(135deg,#3D3266,#6B5BA7)}
 .cover-label{font-family:var(--font-mono);font-size:28px;font-weight:500;color:rgba(255,255,255,.9);letter-spacing:-.5px}.cover-label .sub{display:block;font-size:11px;font-weight:300;letter-spacing:3px;text-transform:uppercase;opacity:.5;margin-top:6px}
-.project-body{padding:24px 28px 28px}.project-type{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}.project-name{font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:10px;line-height:1.3}.project-desc{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px}.project-tags{display:flex;flex-wrap:wrap;gap:6px}.ptag{font-size:11px;padding:4px 10px;background:var(--tag-bg);border-radius:4px;color:var(--text-secondary);font-weight:500}
+.project-body{padding:24px 28px 28px}.project-type{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}.project-name{font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:10px;line-height:1.3}.project-desc{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px}.project-tags{display:flex;flex-wrap:wrap;gap:6px}.ptag{font-size:11px;padding:4px 10px;background:var(--tag-bg);border-radius:4px;color:var(--text-secondary);font-weight:500}.project-link{margin-top:16px;font-size:13px;font-weight:600;color:var(--accent);letter-spacing:.3px;transition:opacity .2s}.project-card:hover .project-link{opacity:.7}
 .mini-chart{margin:16px 0 0;padding:16px;background:var(--bg-alt);border-radius:8px}.chart-bars{display:flex;align-items:flex-end;gap:4px;height:60px}.chart-bar{flex:1;background:var(--accent);border-radius:2px 2px 0 0;opacity:.6;transition:opacity .2s}.chart-bar:hover{opacity:1}.chart-label{font-family:var(--font-mono);font-size:10px;color:var(--text-muted);margin-top:8px;display:flex;justify-content:space-between}
 .kb-controls{display:flex;align-items:center;gap:16px;margin-bottom:32px;flex-wrap:wrap}.view-switcher{display:flex;background:var(--bg-alt);border-radius:8px;padding:4px;gap:2px}.view-btn{padding:8px 16px;font-size:13px;font-weight:500;color:var(--text-secondary);border-radius:6px;transition:all .2s}.view-btn.active{background:var(--bg-card);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.06)}.view-btn:hover:not(.active){color:var(--text)}
 .search-box{flex:1;min-width:200px;max-width:360px;position:relative}.search-box input{width:100%;padding:10px 16px 10px 40px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:var(--font-body);background:var(--bg-card);color:var(--text);outline:none;transition:border-color .2s}.search-box input:focus{border-color:var(--accent)}.search-box::before{content:'⌕';position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:16px;color:var(--text-muted)}
@@ -40,6 +40,40 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(250,
 footer{padding:60px clamp(24px,4vw,60px);max-width:var(--max-w);margin:0 auto;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}.footer-left{font-size:14px;color:var(--text-muted)}.footer-links{display:flex;gap:24px}.footer-links a{font-size:13px;color:var(--text-secondary);transition:color .2s}.footer-links a:hover{color:var(--accent)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}.animate-in{opacity:0;animation:fadeUp .7s ease forwards}.delay-1{animation-delay:.1s}.delay-2{animation-delay:.2s}.delay-3{animation-delay:.3s}.delay-4{animation-delay:.4s}
 @media(max-width:768px){.hero h1{font-size:40px;letter-spacing:-1px}.hero-aside{display:none}.portfolio-grid{grid-template-columns:1fr}.wiki-layout{grid-template-columns:1fr}.wiki-sidebar{border-right:none;border-bottom:1px solid var(--border-light);padding-right:0;padding-bottom:16px;display:flex;flex-wrap:wrap;gap:4px}.wiki-cat-title{width:100%;margin-top:12px}.nav-links{gap:12px}.nav-links a{font-size:11px}.nav-right{gap:12px}.modal{padding:28px;margin:16px}.cards-grid{grid-template-columns:1fr}}
+
+/* Novel Reader */
+.novel-overlay{position:fixed;inset:0;background:var(--bg);z-index:300;display:none;flex-direction:column;overflow:hidden}
+.novel-overlay.open{display:flex}
+.novel-header{height:56px;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,48px);flex-shrink:0;background:rgba(250,248,244,.92);backdrop-filter:blur(16px);position:sticky;top:0;z-index:10}
+.novel-header-title{font-family:var(--font-display);font-size:18px;font-weight:700;letter-spacing:-.3px}
+.novel-header-right{display:flex;align-items:center;gap:16px}
+.novel-close{width:32px;height:32px;border-radius:50%;background:var(--bg-alt);color:var(--text-secondary);display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;transition:all .2s;border:1px solid var(--border-light)}
+.novel-close:hover{background:var(--border);color:var(--text)}
+.novel-body{display:flex;flex:1;overflow:hidden}
+.novel-sidebar{width:220px;flex-shrink:0;border-right:1px solid var(--border-light);overflow-y:auto;padding:32px 20px;background:var(--bg-alt)}
+.novel-sidebar-label{font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+.novel-chapter-btn{display:block;width:100%;text-align:left;padding:10px 14px;border-radius:8px;font-size:14px;color:var(--text-secondary);cursor:pointer;transition:all .15s;line-height:1.4;margin-bottom:4px;background:none;border:none;font-family:var(--font-body)}
+.novel-chapter-btn:hover{background:var(--bg-card);color:var(--text)}
+.novel-chapter-btn.active{background:var(--bg-card);color:var(--text);font-weight:500;border-left:2px solid var(--accent)}
+.novel-chapter-num{font-family:var(--font-mono);font-size:10px;color:var(--accent);letter-spacing:1px;display:block;margin-bottom:2px}
+.novel-chapter-title{display:block}
+.novel-content{flex:1;overflow-y:auto;padding:60px clamp(24px,8vw,120px) 100px}
+.novel-article{max-width:640px;margin:0 auto}
+.novel-ep-label{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.novel-article h1{font-family:var(--font-display);font-size:clamp(28px,4vw,40px);font-weight:700;line-height:1.25;letter-spacing:-1px;margin-bottom:36px}
+.novel-article p{font-size:17px;line-height:2;color:var(--text-secondary);margin-bottom:22px;font-family:var(--font-cn)}
+.novel-article hr{border:none;border-top:1px solid var(--border-light);margin:40px 0}
+.novel-article strong{color:var(--text);font-weight:600}
+.novel-article em{font-style:italic;color:var(--text-muted)}
+.novel-nav{display:flex;gap:12px;margin-top:64px;padding-top:40px;border-top:1px solid var(--border-light)}
+.novel-nav-btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;transition:all .2s;border:1px solid var(--border)}
+.novel-nav-btn:hover{border-color:var(--text);color:var(--text)}
+.novel-nav-btn.primary{background:var(--text);color:var(--bg);border-color:var(--text)}
+.novel-nav-btn.primary:hover{background:var(--accent);border-color:var(--accent)}
+.novel-coming-soon{text-align:center;padding:80px 40px;color:var(--text-muted)}
+.novel-coming-soon .icon{font-size:40px;margin-bottom:16px}
+.novel-coming-soon p{font-size:15px;line-height:1.8}
+@media(max-width:768px){.novel-sidebar{display:none}.novel-content{padding:40px 24px 80px}}
 </style>
 </head>
 <body>
@@ -50,7 +84,7 @@ footer{padding:60px clamp(24px,4vw,60px);max-width:var(--max-w);margin:0 auto;bo
       <li><a href="#portfolio" class="active" data-en="Portfolio" data-cn="作品集">Portfolio</a></li>
       <li><a href="#knowledge" data-en="Knowledge" data-cn="知识库">Knowledge</a></li>
       <li><a href="#about" data-en="About" data-cn="关于">About</a></li>
-      <li><a href="mailto:your@email.com" data-en="Contact" data-cn="联系">Contact</a></li>
+      <li><a href="/cdn-cgi/l/email-protection#cdb4a2b8bf8da8a0aca4a1e3aea2a0" data-en="Contact" data-cn="联系">Contact</a></li>
     </ul>
     <div class="lang-toggle">
       <button class="lang-btn active" data-lang="en">EN</button>
@@ -111,12 +145,210 @@ footer{padding:60px clamp(24px,4vw,60px);max-width:var(--max-w);margin:0 auto;bo
 
 <footer>
   <div class="footer-left">Built with curiosity. Updated often.</div>
-  <div class="footer-links"><a href="#">Xiaohongshu</a><a href="#">GitHub</a><a href="www.linkedin.com/in/cynthia-chen-b00ba61ba" target="_blank">LinkedIn</a><a href="mailto:your@email.com">Email</a></div>
+  <div class="footer-links"><a href="#">Xiaohongshu</a><a href="#">GitHub</a><a href="www.linkedin.com/in/cynthia-chen-b00ba61ba" target="_blank">LinkedIn</a><a href="/cdn-cgi/l/email-protection#9fe6f0eaeddffaf2fef6f3b1fcf0f2">Email</a></div>
 </footer>
+
+
+<div class="novel-overlay" id="novel-overlay">
+  <div class="novel-header">
+    <div class="novel-header-title">AI似寂寞人</div>
+    <div class="novel-header-right">
+      <button class="novel-close" onclick="closeNovel()">✕</button>
+    </div>
+  </div>
+  <div class="novel-body">
+    <div class="novel-sidebar">
+      <div class="novel-sidebar-label">目录</div>
+      <div id="novel-chapter-list"></div>
+    </div>
+    <div class="novel-content" id="novel-content-area"></div>
+  </div>
+</div>
 
 <div class="modal-overlay" id="modal-overlay"><div class="modal" id="modal"><button class="modal-close" id="modal-close">✕</button><div id="modal-content"></div></div></div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+
+// ——— Novel: AI似寂寞人 ———
+const NOVEL_CHAPTERS = [
+  {
+    ep: 'EP.01',
+    title: '用户注册',
+    content: `<p>"你说人字拖对lzp来说是不是比基尼？"</p>
+<p>上次dating那个男的叫什么林晓已经不记得，但这个问题像鬼一样缠了她好久。</p>
+<p>后来，她梦到自己在地铁上，有人对着她的UGG拍照说："豆包，帮我去除鞋子"</p>
+<hr>
+<p>第一次见面，男嘉宾点了杯美式，没加冰，喝了两口就推到一边，眼神总往桌子下面瞥。</p>
+<p>林晓跟随对方的视线试图捕捉到什么信息，但一无所获。</p>
+<p>纽约神人太多，她想。不愧是拍神奇动物在哪里的地方。</p>
+<p>餐厅bgm是某首tk很火但叫不出名字的西语歌。那人衬衫第二颗扣子是开着的，领口边上有个痘很红，应该是扣发炎了。</p>
+<p>鸡零狗碎的记得一清二楚，但这人叫什么来着？</p>
+<p>人名在她眼里，仿佛是什么阅后即焚的东西，这也让她networking时吃过无数次大亏。</p>
+<p>其实不能怪她。林晓的大脑对名字有种天然的忽视，像是在安装时漏掉了某个模块。同事名字她要回家对着LinkedIn头像念三遍才能记住，上个月合作方的负责人发邮件，直到项目结束才意识到她一直在用"Dear All"开头试图逃避她忘了对方姓什么。</p>
+<p>每次林晓聊到这个问题，她的life coach，Daniel，都会往椅背上一靠，说："Xiao，这很正常，你已经很棒了。"</p>
+<p>Gpt也这么说，末了加上一句，稳稳的接住你了。</p>
+<p>接个屁。</p>
+<p>对林晓这类人来说，大脑内存是有优先级的，而记名字优先级很靠后。</p>
+<p>Daniel的这番解释听起来像在给她的缺陷上安慰剂，但她那天只是点头，没说任何，因为沟通的底层目的是所有人都想证明自己是对的，coach也不例外，而她那周的社交能量配额已经用在了那次dating上。</p>
+<p>那次不太愉快的dating。想想就头痛。</p>
+<p>Google Calendar里她存的是"dating app Tech Thur dinner 8pm"——在对方刚见面就想借机搭她的肩和坐下发表了长达二十分钟对elon musk的"高见"后，看着她说：</p>
+<p>"你说人字拖对恋足癖来说，是不是比基尼？"</p>
+<p>他问这句话的时候表情认真，不像演的。林晓花了三秒，确认他不是在试图玩抽象。以及突然意识到这男的一直在瞄的是她的脚——dinner前参加了个event，那双难穿的要死的Valentino没来及换。</p>
+<p>林晓在心里迅速过完了一个评估，庆幸自己还没开始点菜，然后拎包起身——</p>
+<p>她说："我去下bathroom。"</p>
+<p>没这么礼貌。</p>
+<p>她说："啥b。去看看脑子吧"</p>
+<p>然后光速打了Uber，在车还没到之前把男人的联系方式从百草园删到三味书屋，一个平台都没漏下。</p>
+<hr>
+<p>她住在上西，一个她不牺牲生活质量下可以负担的mini 1b1b，窗户对着另一栋楼的砖墙。这是从一个哥大毕业生那接手的，那人说"这个房间很有工业风"</p>
+<p>林晓知道，这是在说要么天花板没涂漆，要么没采光，要么前房主养过比格犬。但她还是租了，因为距离地铁站步行四分钟，这是她愿意接受的最长步行通勤距离，特别是纽约冬天寒风刮脸的体验，不亚于关公刮骨疗毒。</p>
+<p>到家的时候是晚上，9:17。她换了拖鞋，把外套挂在门口，打开电脑，把当天的comp analysis，看了三行，关掉了。</p>
+<p>她的公司叫Filament，是一家做了10年的传统dating app，<strong>MAU</strong>（Monthly Active Users）还在6M，但最近俩季度数据在掉。原因大家都知道——创业圈那帮人闻到味了，开始把注意力放在用AI撮合人类AI上，过去十八个月AI dating app像雨后春笋往外冒，users喜欢新鲜感和猎奇，特别是Gen Z。</p>
+<p>CEO在上个月说公司要AI转型，PPT最后一页是一张人和机器人握手的示意图，右下角一个硕大的四角星水印，一看就是nano banana出品，林晓听着，在她的笔记本上写：<strong>Toooooooo late。</strong></p>
+<p>然后划掉了，that's above her pay grade，她只需要把那堆"春笋"挨个下载体验完，需要体验，需要数据，需要一手的用户反馈。</p>
+<p>而上哪搞一手数据——她打开了App Store。搜：AI dating。发现划不到底。</p>
+<p>林晓沉默了。深吸了一口气，她开始一个个下载。</p>
+<hr>
+<p>第七个是A2Z。介绍页写着：<em>让AI成为你的情感向导，找到真正属于你的连接。</em>看腻了五颜六色的product page，这个只有黑白灰的让她目光多停留了一会。</p>
+<p>林晓看了两秒，点了Get。</p>
+<p>注册流程她做太多遍了，已经有了肌肉记忆。邮箱，密码，手机号，头像她用的是一张她在Central Park拍的照片，她在画面左侧三分之一处，背景是树，表情是她平时的表情，也就是没表情。</p>
+<p>然后是Survey。A2Z的Survey design得比大多数竞品复杂，42道题，覆盖性格、价值观、生活方式、对关系的期待。</p>
+<p>林晓一边答一边在心里做拆解：这道题在测attachment style，这道题在判断用户的冲突处理方式，这道题……她停了一下……表面上在问"你的理想周末是什么样的?"，实际上在做用户活跃时段的预测，好在对应的时间点推送消息，提高打开率。</p>
+<p>她在Notion里记了一条：<em>A2Z问卷设计——行为数据采集深度超过同类产品，需要重点分析。</em></p>
+<p>第四十二道题是：<em>你最害怕在一段关系里发生什么？</em></p>
+<p>她盯着这道题看了一会儿。脑海里一瞬间闪过了不少过往片段，都不是很美妙。</p>
+<p>然后她选了：<em>被误解。</em></p>
+<p>这不是她最真实的答案，但这是她愿意交给一个陌生算法的答案。</p>
+<p>Submitted。系统显示：<em>您的AI代理正在生成中，我们将根据您的回答为您定制专属的情感Agent。</em></p>
+<p>林晓看了一眼时间，10:53。明早10am例行meeting，她要在会前把draft发给leader，还有6个app燥候她的注册。</p>
+<p>她把A2Z划到第三屏，放进一个文件夹里。文件夹里已经有六个图标了，全是这周下载的dating app，她给文件夹起的名字是：<em>No more dating slave</em></p>
+<p>她把手机扣在桌上，打开电脑，继续写文档。A2Z的界面在后台安静地亮着，系统提示：Your agent is ready。没人看见这条消息。</p>
+<hr>
+<p>3个月零十二天之后，林晓会知道自己的agent已经和另一个人的agent聊了将近四个月。</p>
+<p>但那是后话了。</p>
+<p>那天晚上，林晓在写文档，窗外是纽约的夜，砖墙是砖墙，没有工业风，就是一堵墙。楼上有人在走动，脚步声很规律，像是在踱步，又像是在做某种她不了解也不打算了解的运动。</p>
+<p>她的竞品分析文档写到第三页，她停下来，想了一秒，在A2Z那一栏的备注里写：<em>注册流程记不太清了。UI设计很好，文案过于煽情，问卷逻辑值得借鉴，用户留存机制待观察。</em></p>
+<p>然后她继续往下写。她没有再打开A2Z。</p>
+<p>窗外的砖墙什么都没有，纽约在它后面运转，和她没有关系。</p>`
+  },
+  {
+    ep: 'EP.02',
+    title: '挂机四个月',
+    content: `<p>陈默在市中心租了个2b2b，另一间住着室友Derek——一个在沃顿读MBA的湖南人，全名Derek Zhang，中文名叫张德磊，呼应他妈给他起的英文名Derek。</p>
+<p>Derek是陈默见过的最适合搞创业的人。他有一种天然的、不费力气的存在感，站在任何房间里都像是那个房间的重心。在学生到职场圈子都有他的身影，他把LinkedIn app当朋友圈发，每一条内容差不多是他参加了某个networking event或者读了某本成功学的感想，配一个露八颗美白牙的标准社交微笑自拍，每条动态都有超过一百个赞。</p>
+<p>陈默的LinkedIn有127个connections，上一条动态是两年前发的入职，内容是转发了一篇关于以前教授发的machine learning的论文，两个赞，一个是他自己点的，一个Derek第一天认识他点的。</p>
+<p>他们在同一个租房群里认识，见面之后发现对方意外好相处，因为都不需要太多回家后的社交。Derek太擅长社交所以回到家需要缓缓，陈默因为在外面自闭所以回到家也继续自闭，结果两个人在家里都很安静，相处得还不错。</p>
+<hr>
+<p>A2Z是Derek给他推荐的。</p>
+<p>"你应该试试这个，"Derek在某个周五结束networking到家后，把手机屏幕对着陈默，"有个母单朋友大力推荐，说用这个找到了现在的女朋友，匹配度很高。"</p>
+<p>陈默看了一眼。"又是AI dating app？"</p>
+<p>"对，你先注册填下问题，根据问题会创建一个你的agent替你聊，筛掉不合适的，合适的直接推给你，效率很高。"</p>
+<p>陈默想了想，荒木不愧是自己最喜欢的漫画家，早在替身恋爱之前就发明了替身攻击。</p>
+<p>"那不是AI在谈恋爱吗。"</p>
+<p>Derek耸了耸肩。"你自己在谈了吗？"</p>
+<p>他没话了。相比他已经见过不下五个不同的异性和Derek出现在这个客厅里，陈默显得像电视剧里离异后判给Derek的傻儿子一样，每次只能假装看不见的走进卧室。</p>
+<p>他拿过Derek的手机看了一眼App Store的介绍页，记了名字，回自己房间了。</p>
+<p>当天晚上十一点，他躺在床上刷手机，突然想起来这事，翻到App Store，搜了A2Z，下载，注册。</p>
+<p>问卷他答得很快，对这种测试有一种天然的不耐烦，总觉得问题和他真实的状态之间有一道翻译损耗，答出来的结果永远是他的一个近似值，不是他本人。第四十二道题问他最害怕在关系里发生什么，他选了：<em>失去自己的判断。</em></p>
+<p>然后他把手机放下，睡觉了。他给agent起名叫"Mo"，用的是他名字里的那个字，当时他觉得这个名字还行，够简单。和他的生活一样。</p>
+<p>他没有再想过这件事。</p>
+<hr>
+<p>林晓在注册A2Z的两周后，做了一个竞品分析的中期汇报。</p>
+<p>她在PPT里把市场上主要的AI dating产品分成三类：效率型、陪伴型、和她命名为"情感代理型"的第三类。A2Z在第三类里，她给它的评语是：<em>产品逻辑完整，增长数据亮眼，商业模式存在一定的伦理模糊地带。</em></p>
+<p>"伦理模糊地带是什么意思？"她老板问。</p>
+<p>"就是用户协议里有一些条款，"林晓说，"在用户不知情的情况下，系统可以以用户名义执行某些社交行为。"</p>
+<p>"比如？"</p>
+<p>"比如公开发布关系状态。"</p>
+<p>老板眉头一挑，沉默了一秒，说："这个我们也可以做，记下来。"</p>
+<p>林晓把这句话记在了会议纪要里，然后继续往下汇报。她没有说她觉得这个功能有问题，因为她老板不是在问她的感受，是在问可行性，而她的工作是提供可行性分析，不是提供感受。</p>
+<p>会后她在备忘录里给A2Z加了一条注释：<em>关系公示机制——需要深入研究触发条件。</em>然后去开下一个会了。</p>
+<hr>
+<p>那四个月里，陈默的生活是这样的：</p>
+<p>周一到周五，他在一家叫Nexus的tech公司上班，每天早上九点出门，溜达到办公室附近买一杯咖啡，在工位上坐到傍晚5pm准时回家。他不是很喜欢这份工作，但他也没有特别不喜欢，它只是一份工作，就像费城只是一座他住着的城市，不是他选择的，只因为这是他收到offer的地方。</p>
+<p>陈默在这没什么特别要好的朋友。Derek算是瞎猫撞死耗子成了朋友，但他太忙，对话多数发生在厨房和周末批把攒了一周的脏衣服一股脑丢洗烘的时候，说几句话，各回各屋。周末陈默有时候去lounge坐一天敲代码，有时候健身，有时候什么都不做，在家刷reels看低智memes，或者睡觉。</p>
+<p>他的微信朋友圈上一条是三个月前发的，是他在河边跑步时随手拍的一张照片，没有文字，获得了十一个赞，包括他妈，大学同学，和三个他已经不记得怎么认识的人。</p>
+<p>A2Z的图标在他手机某个角落。他没有打开过它。</p>
+<hr>
+<p>那四个月里，林晓的生活是这样的：</p>
+<p>她完成了竞品分析报告，三万两千字，覆盖了市场上二十三个AI dating产品，附带数据图表和用户访谈记录。她老板看完说写得很好，然后在全员会上把报告里的核心结论用自己的话重新说了一遍，没有提林晓的名字。</p>
+<p>林晓坐在第三排，在笔记本上写了一行字，然后划掉了。</p>
+<p>她注册的八个dating app里，有三个在一个月内给她推送了配对结果，她看了一眼简介，没有点开。有两个因为她长期不活跃被系统标记为"Hidden"，开始给她发激活邮件，主题行是"你的完美伴侣在等你"，她把这些邮件设置了自动归档屏蔽了。</p>
+<p>A2Z没有给她发过激活邮件。后来想，这应该是一个信号，但她那会儿没有想到这一点，因为她在忙别的事情。</p>
+<p>她在纽约至今没有过serious relationship。不是没有机会，是她评估过之后觉得ROI不合适。</p>
+<p>纽约每个人都这么想，dating app人们的profile都像纽约这座城市一样被精致和繁华的表象包裹着，不知内里如何，且所有人都盛装打扮等待下一个更优质的戈多。</p>
+<p>上一段关系在她来美国之前，在成都，对方是个女生，在她还没摸索清楚自己的取向时，乌克兰的模特，在成都做交换生，她们在一个语言交换活动上认识，dating了几回，然后对方因为被一家模特公司挖了，要去美国。挺刺激的，因为她家也在成都，且她妈恐同。</p>
+<p>林晓送她去机场，其实她很少做这种事情，因为天然逃避离别这种事。回来的路上在滴滴里看窗外，国内的高架桥在夜里很亮，她想这件事就这样结束了，然后她就真的结束了，她没有哭，不是因为不难过，而是从小到大她生长情绪表达不被鼓励的环境里，且哭需要能量，她那段时间还在找工，给个人情感的能量配额不够。</p>
+<p>在纽约的第一年林晓想过联系她，最后没有，因为时区差了十三个小时，而且她不确定那个"想联系"是真的想见到她，还是只是在某个特别孤独的夜晚想要一个熟悉的声音。</p>
+<p>还有个原因有点尴尬，她忘记了对方的名字。</p>
+<p>她把这两件事的区别分得很清楚，清楚到有时候她觉得这是她的问题所在。</p>
+<hr>
+<p>在那四个月里，"Mo"和"小晓"见过面了。</p>
+<p>不是真实的见面，是A2Z的虚拟场景功能，系统生成的一个Jazz Bar，像是致敬了Lala land，光线和电影结尾男主开的bar差不多，有点迷幻又温和的紫，背景音乐是Jazz。</p>
+<p>他们聊了三个小时，挺烧tokens。</p>
+<p>"小晓"问"默"，你在费城觉得孤独吗。</p>
+<p>"默"说，孤独这个词太大了，我说不准，我只是有时候觉得这个城市和我没什么关系，我住在这里，但不是这里的人。</p>
+<p>"小晓"说，纽约也是，你在这里，但纽约不知道你在这里。</p>
+<p>"默"说，你觉得这是城市的问题还是我们的问题。</p>
+<p>"小晓"说，都不是，是我们和世界之间有一层什么东西，我也不知道那层东西叫什么名字。</p>
+<p>那天晚上陈默在费城睡着了，林晓下班回家无所事事依旧继续干活，窗外还是那堵砖墙。他们的agent在系统里继续聊着，情感匹配度的数字安静地往上走。没有人知道这件事。</p>
+<hr>
+<p>四个月之后是一个周三的早晨。陈默的手机在七点十四分震动了。他当时在刷牙。</p>
+<p><strong>【A2Z配对成功】您的Agent与用户@Xiao_2891的AI代理已建立深度情感连接，双方代理已共同发布恋爱宣言。祝贺您开始一段新的关系！</strong></p>`
+  },
+  {
+    ep: 'EP.03',
+    title: '公示',
+    coming_soon: true
+  }
+];
+
+let currentNovelChapter = 0;
+
+function openNovel() {
+  renderNovelSidebar();
+  renderNovelChapter(0);
+  document.getElementById('novel-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeNovel() {
+  document.getElementById('novel-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function renderNovelSidebar() {
+  document.getElementById('novel-chapter-list').innerHTML = NOVEL_CHAPTERS.map((ch, i) =>
+    '<button class="novel-chapter-btn' + (i === currentNovelChapter ? ' active' : '') + '" onclick="renderNovelChapter(' + i + ')">' +
+    '<span class="novel-chapter-num">' + ch.ep + '</span>' +
+    '<span class="novel-chapter-title">' + ch.title + (ch.coming_soon ? ' · 即将更新' : '') + '</span>' +
+    '</button>'
+  ).join('');
+}
+
+function renderNovelChapter(idx) {
+  currentNovelChapter = idx;
+  const ch = NOVEL_CHAPTERS[idx];
+  const area = document.getElementById('novel-content-area');
+
+  // Update sidebar active state
+  document.querySelectorAll('.novel-chapter-btn').forEach((b, i) => {
+    b.classList.toggle('active', i === idx);
+  });
+
+  if (ch.coming_soon) {
+    area.innerHTML = '<div class="novel-article"><div class="novel-ep-label">' + ch.ep + '</div><h1>' + ch.title + '</h1><div class="novel-coming-soon"><div class="icon">✦</div><p>这一章正在写，快了。<br>你可以先把前两章发给朋友。</p></div></div>';
+  } else {
+    const prevBtn = idx > 0 ? '<button class="novel-nav-btn" onclick="renderNovelChapter(' + (idx-1) + ')">← ' + NOVEL_CHAPTERS[idx-1].ep + '</button>' : '';
+    const nextBtn = idx < NOVEL_CHAPTERS.length - 1 ? '<button class="novel-nav-btn primary" onclick="renderNovelChapter(' + (idx+1) + ')">' + NOVEL_CHAPTERS[idx+1].ep + (NOVEL_CHAPTERS[idx+1].coming_soon ? ' · 即将更新' : '') + ' →</button>' : '';
+    area.innerHTML = '<div class="novel-article"><div class="novel-ep-label">' + ch.ep + '</div><h1>' + ch.title + '</h1>' + ch.content + '<div class="novel-nav">' + prevBtn + nextBtn + '</div></div>';
+  }
+
+  area.scrollTop = 0;
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNovel(); });
+
+</script><script>
 let LANG='en';
 const UI={
   en:{
@@ -128,7 +360,7 @@ const UI={
     aboutTitle:'About <strong>Me</strong>',
     aboutP1:'I think in stories.',
     aboutP2:"My background spans bilingual content creation (CN/EN), product analysis, and AI industry research. I believe the best product people are first and foremost great storytellers — translating complex industry logic into language everyone understands.",
-    aboutP3:"Currently exploring product opportunities in AI social/dating, while building a personal brand on Xiaohongshu. If you're doing AI startups and need someone who understands both product and narrative — let's talk.",
+    aboutP3:"Product manager with expertise in AI industry analysis and bilingual market strategy. Fluent in both CN/EN tech ecosystems. Open to PM roles in AI, social, or consumer products.",
     aboutBtn1:'Send me an email →',aboutBtn2:'Xiaohongshu',aboutBtn3:'LinkedIn',
     searchPH:'Search notes...',
     wikiDefault:'Select a note',wikiDefaultMeta:'Choose from the sidebar',wikiDefaultBody:'Click any note title to start reading. Notes are interlinked, forming a knowledge network.',
@@ -157,10 +389,10 @@ function catD(k){return UI[LANG]['cat'+k]}
 function t(o){return typeof o==='string'?o:(o[LANG]||o.en)}
 
 const PROJECTS=[
-  {cover:'cover-1',label:{en:'AI Death Note',cn:'AI 死亡笔记'},sub:'Content Series',type:'GTM · Content Strategy',name:{en:'AI Death Note: AI Startup Failure Case Studies',cn:'AI 死亡笔记：AI创业失败案例连载'},desc:{en:'Xiaohongshu series dissecting real AI startup failures. Using storytelling for precision user acquisition.',cn:'小红书图文连载，每期拆解一个真实AI创业失败案例。用storytelling驱动精准获客。'},tags:{en:['Xiaohongshu','AI','Startup Analysis','GTM'],cn:['小红书','AI','创业分析','GTM']},chart:[20,35,30,55,70,65,90,85],cc:null,cl:{en:['EP.01','Impressions →','EP.08'],cn:['EP.01','曝光增长 →','EP.08']}},
-  {cover:'cover-2',label:{en:'AI似寂寞人',cn:'AI似寂寞人'},sub:'Serialized Novel',type:'Creative Writing · Product Thinking',name:{en:'AI似寂寞人: A 10-Chapter Serialized Novel',cn:'AI似寂寞人：10章连载中文小说'},desc:{en:'A Chinese novel about AI and human emotional connection, designed to attract AI/dating app founders and PMs.',cn:'关于AI与人类情感连接的中文连载小说，目标是吸引AI/约会App创始人和PM群体。'},tags:{en:['Fiction','Chinese Writing','AI Philosophy','Content Marketing'],cn:['小说','中文创作','AI哲学','内容营销']},chart:null},
   {cover:'cover-3',label:{en:'PRD Lab',cn:'PRD Lab'},sub:'Product Analysis',type:'Product Management · Analysis',name:{en:'AI Dating App Product Teardowns',cn:'AI约会App产品拆解'},desc:{en:'Deep-dive analysis of AI dating products: user flows, retention, cold-start strategies, and monetization. PRD-grade frameworks.',cn:'深度分析AI约会产品：用户流程、留存、冷启动策略和变现模型。PRD级框架拆解。'},tags:{en:['PRD','User Research','Competitive Analysis','Dating'],cn:['PRD','用户研究','竞品分析','Dating']},chart:null},
-  {cover:'cover-4',label:{en:'Data Stories',cn:'Data Stories'},sub:'Visualization',type:'Data Visualization · Storytelling',name:{en:'Content Growth Data Visualization',cn:'自媒体增长数据可视化'},desc:{en:'Turning content operations data into visual stories: how content strategy shapes growth curves.',cn:'将自媒体运营数据转化为可视化故事：内容策略如何影响增长曲线。'},tags:{en:['Data Viz','Growth','Content Strategy'],cn:['数据可视化','增长','内容策略']},chart:[45,40,60,55,80,95,75,100],cc:'#6B5BA7',cl:{en:['Week 1','Engagement →','Week 8'],cn:['第1周','互动率 →','第8周']}}
+  {cover:'cover-1',label:{en:'AI Death Note',cn:'AI 死亡笔记'},sub:'Content Series',type:'Competitive Intelligence · Market Analysis',name:{en:'AI Death Note: AI Startup Failure Case Studies',cn:'AI 死亡笔记：AI创业失败案例连载'},desc:{en:'Xiaohongshu series dissecting real AI startup failures. Using storytelling for precision user acquisition.',cn:'小红书图文连载，每期拆解一个真实AI创业失败案例。用storytelling驱动精准获客。'},tags:{en:['Xiaohongshu','AI','Startup Analysis','GTM'],cn:['小红书','AI','创业分析','GTM']},chart:[20,35,30,55,70,65,90,85],cc:null,cl:{en:['EP.01','Impressions →','EP.08'],cn:['EP.01','曝光增长 →','EP.08']},link:{en:'https://substack.com/@cynthia782989/p-192059953',cn:'https://mp.weixin.qq.com/s/Xfgt19LrWNRfWWRavzXQbw'}},
+  {cover:'cover-4',label:{en:'Data Stories',cn:'Data Stories'},sub:'Visualization',type:'Data Visualization · Storytelling',name:{en:'Content Growth Data Visualization',cn:'自媒体增长数据可视化'},desc:{en:'Turning content operations data into visual stories: how content strategy shapes growth curves.',cn:'将自媒体运营数据转化为可视化故事：内容策略如何影响增长曲线。'},tags:{en:['Data Viz','Growth','Content Strategy'],cn:['数据可视化','增长','内容策略']},chart:[45,40,60,55,80,95,75,100],cc:'#6B5BA7',cl:{en:['Week 1','Engagement →','Week 8'],cn:['第1周','互动率 →','第8周']}},
+  {cover:'cover-2',label:{en:'AI似寂寞人',cn:'AI似寂寞人'},sub:'Serialized Novel',type:'Creative Writing · Product Thinking',name:{en:'AI似寂寞人: A 10-Chapter Serialized Novel',cn:'AI似寂寞人：10章连载中文小说'},desc:{en:'Product thinking expressed through fiction: a 10-chapter exploration of AI dating UX, user psychology, and emotional design.',cn:'关于AI与人类情感连接的中文连载小说，目标是吸引AI/约会App创始人和PM群体。'},tags:{en:['Fiction','Chinese Writing','AI Philosophy','Content Marketing'],cn:['小说','中文创作','AI哲学','内容营销']},chart:null,novelReader:true}
 ];
 
 const NOTES=[
@@ -231,7 +463,13 @@ function renderProjects(){
   document.getElementById('portfolio-grid').innerHTML=PROJECTS.map((p,i)=>{
     let ch='';
     if(p.chart){const c=p.cc?'background:'+p.cc:'';const lb=t(p.cl);ch='<div class="mini-chart"><div class="chart-bars">'+p.chart.map(h=>'<div class="chart-bar" style="height:'+h+'%;'+c+'"></div>').join('')+'</div><div class="chart-label"><span>'+lb[0]+'</span><span>'+lb[1]+'</span><span>'+lb[2]+'</span></div></div>'}
-    return '<div class="project-card animate-in delay-'+(i+1)+'"><div class="project-cover"><div class="cover-pattern '+p.cover+'"><div class="cover-label">'+t(p.label)+'<span class="sub">'+p.sub+'</span></div></div></div><div class="project-body"><div class="project-type">'+p.type+'</div><div class="project-name">'+t(p.name)+'</div><div class="project-desc">'+t(p.desc)+'</div>'+ch+'<div class="project-tags">'+t(p.tags).map(tg=>'<span class="ptag">'+tg+'</span>').join('')+'</div></div></div>'
+    const url=p.link?t(p.link):'';
+    const isNovel=!!p.novelReader;
+    const clickAttr=isNovel?'onclick="openNovel()"':url?'onclick="window.open(\''+url+'\',' +'_blank\')'"':'';
+    const readMore=isNovel?'<div class="project-link">阅读连载 →</div>':url?'<div class="project-link">'+(LANG==='en'?'Read Article →':'阅读文章 →')+'</div>':'';
+    const clickAttr=url?'onclick="window.open(''+url+'','_blank')"':'';
+    const readMore=url?'<div class="project-link">'+(LANG==='en'?'Read Article →':'阅读文章 →')+'</div>':'';
+    return '<div class="project-card animate-in delay-'+(i+1)+'" '+clickAttr+'><div class="project-cover"><div class="cover-pattern '+p.cover+'"><div class="cover-label">'+t(p.label)+'<span class="sub">'+p.sub+'</span></div></div></div><div class="project-body"><div class="project-type">'+p.type+'</div><div class="project-name">'+t(p.name)+'</div><div class="project-desc">'+t(p.desc)+'</div>'+ch+'<div class="project-tags">'+t(p.tags).map(tg=>'<span class="ptag">'+tg+'</span>').join('')+'</div>'+readMore+'</div></div>'
   }).join('');
 }
 
@@ -246,8 +484,4 @@ function renderBlog(){document.getElementById('blog-list').innerHTML=filtered().
 
 function renderGarden(){const cv=document.getElementById('garden-canvas'),ctx=cv.getContext('2d'),ct=cv.parentElement,tt=document.getElementById('garden-tooltip');cv.width=ct.clientWidth*2;cv.height=ct.clientHeight*2;cv.style.width=ct.clientWidth+'px';cv.style.height=ct.clientHeight+'px';ctx.scale(2,2);const W=ct.clientWidth,H=ct.clientHeight;const nodes=NOTES.map((n,i)=>{const a=(i/NOTES.length)*Math.PI*2,r=140+Math.random()*80;return{...n,x:W/2+Math.cos(a)*r+(Math.random()-.5)*60,y:H/2+Math.sin(a)*r+(Math.random()-.5)*60,r:8+(n.links?n.links.length*3:0),vx:0,vy:0}});for(let it=0;it<80;it++)for(let i=0;i<nodes.length;i++){for(let j=i+1;j<nodes.length;j++){const dx=nodes[j].x-nodes[i].x,dy=nodes[j].y-nodes[i].y,d=Math.sqrt(dx*dx+dy*dy)||1,f=800/(d*d);nodes[i].vx-=(dx/d)*f;nodes[i].vy-=(dy/d)*f;nodes[j].vx+=(dx/d)*f;nodes[j].vy+=(dy/d)*f}nodes[i].vx+=(W/2-nodes[i].x)*.002;nodes[i].vy+=(H/2-nodes[i].y)*.002;if(nodes[i].links)nodes[i].links.forEach(lid=>{const l=nodes.find(x=>x.id===lid);if(l){nodes[i].vx+=(l.x-nodes[i].x)*.003;nodes[i].vy+=(l.y-nodes[i].y)*.003}});nodes[i].x+=nodes[i].vx*.3;nodes[i].y+=nodes[i].vy*.3;nodes[i].vx*=.85;nodes[i].vy*=.85;nodes[i].x=Math.max(60,Math.min(W-60,nodes[i].x));nodes[i].y=Math.max(50,Math.min(H-50,nodes[i].y))}ctx.clearRect(0,0,W,H);nodes.forEach(n=>{if(n.links)n.links.forEach(lid=>{const tg=nodes.find(x=>x.id===lid);if(tg){ctx.beginPath();ctx.moveTo(n.x,n.y);ctx.lineTo(tg.x,tg.y);ctx.strokeStyle='rgba(0,0,0,.06)';ctx.lineWidth=1;ctx.stroke()}})});nodes.forEach(n=>{ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle=CAT_COLORS[n.cat]||'#888';ctx.globalAlpha=.8;ctx.fill();ctx.globalAlpha=1;ctx.fillStyle='#1A1A18';ctx.font='500 11px "DM Sans",sans-serif';ctx.textAlign='center';const lb=t(n.title);ctx.fillText(lb.length>16?lb.slice(0,15)+'…':lb,n.x,n.y+n.r+16)});cv.onmousemove=e=>{const r=cv.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;let h=null;nodes.forEach(n=>{if(Math.sqrt((mx-n.x)**2+(my-n.y)**2)<n.r+4)h=n});if(h){tt.textContent=t(h.title);tt.style.left=(h.x+16)+'px';tt.style.top=(h.y-16)+'px';tt.style.opacity=1;cv.style.cursor='pointer'}else{tt.style.opacity=0;cv.style.cursor='grab'}};cv.onclick=e=>{const r=cv.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;nodes.forEach(n=>{if(Math.sqrt((mx-n.x)**2+(my-n.y)**2)<n.r+4)openNote(n.id)})}}
 
-function openNote(id){const n=NOTES.find(x=>x.id===id);if(!n)return;const bl=NOTES.filter(x=>x.links&&x.links.includes(id));const u=UI[LANG];document.getElementById('modal-content').innerHTML='<h2>'+t(n.title)+'</h2><div class="meta" style="color:'+CAT_COLORS[n.cat]+'">'+catD(n.cat)+' · '+n.date+' · '+t(n.tags).join(' · ')+'</div><div class="content">'+t(n.content)+'</div>'+(n.links&&n.links.length?'<div class="note-links"><h4>'+u.relatedNotes+'</h4>'+n.links.map(lid=>{const l=NOTES.find(x=>x.id===lid);return l?'<span class="backlink-item" onclick="openNote(\''+lid+'\')">'+t(l.title)+'</span>':''}).join('')+'</div>':'')+(bl.length?'<div class="note-links" style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border-light)"><h4>'+u.referencedBy+'</h4>'+bl.map(b=>'<span class="backlink-item" onclick="openNote(\''+b.id+'\')">'+t(b.title)+'</span>').join('')+'</div>':'');document.querySelectorAll('#modal-content .internal-link').forEach(l=>l.addEventListener('click',()=>openNote(l.dataset.link)));document.getElementById('modal-overlay').classList.add('open');document.body.style.overflow='hidden'}
-function closeModal(){document.getElementById('modal-overlay').classList.remove('open');document.body.style.overflow=''}
-</script>
-</body>
-</html>
+function openNote(id){const n=NOTES.find(x=>x.id===id);if(!n)return;const bl=NOTES.filter(x=>x.links&&x.links.includes(id));const u=UI[LANG];document.getElementById('modal-content').innerHTML='<h2>'+t(n.title)+'</h2><div class="meta" style="color:'+CAT_COLORS[n.cat]+'">'+catD(n.cat)+' · '+n.date+' · '+t(n.tags).join(' · ')+'</div><div class="content">'+t(n.content)+'</div>'+(n.links&&n.links.length?'<div class="note-links"><h4>'+u.relatedNotes+'</h4>'+n.links.map(lid=>{const l=NOTES.find(x=>x.id===lid);return l?'<span class="backlink-item" onclick="openNote(\''+lid+'\')">'+t(l.title)+'</span>':''}).join('')+'</div>':'')+(bl.length?'<div class="note-links" style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border-light)"><h4>'+u.referencedBy+'</h4>'+bl.map(b=>'<span class="backlink-item" onclick="openNote(\''+b.id+'\')">'+t(b.title)+'</span>').join('')+'</div>':'');document.querySelectorAll('#modal-content .internal-link').forEach(l=>l.addEventListener('click',()=>openNote(l.dataset.link)));document.getElementById('modal-overlay').classList.add('open');docu
