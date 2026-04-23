@@ -869,7 +869,6 @@ function ccRenderNovel() {
 }
 
 function ccOpenArticle(type, idx) {
-  const u = CC_UI[LANG];
   if(type === 'tech') { ccCurrentList = CC_TECH[LANG]; ccCurrentType = 'tech'; }
   else if(type === 'fiction') { ccCurrentList = CC_FICTION[LANG]; ccCurrentType = 'fiction'; }
   else { ccCurrentList = LANG === 'en' ? CC_NOVEL_EN : CC_NOVEL_CN; ccCurrentType = 'novel'; }
@@ -877,6 +876,8 @@ function ccOpenArticle(type, idx) {
   ccRenderModal(idx);
   document.getElementById('cc-modal-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
+  // Update URL hash
+  history.pushState(null, '', '#' + ccCurrentType + '-' + idx);
 }
 
 function ccRenderModal(idx) {
@@ -900,15 +901,46 @@ function ccNavModal(dir) {
   if(newIdx < 0 || newIdx >= ccCurrentList.length) return;
   ccCurrentIdx = newIdx;
   ccRenderModal(newIdx);
+  // Update URL hash as user pages through
+  history.pushState(null, '', '#' + ccCurrentType + '-' + newIdx);
 }
 
 function ccCloseModal() {
   document.getElementById('cc-modal-overlay').classList.remove('open');
   document.body.style.overflow = '';
+  // Clear hash without triggering scroll
+  history.pushState(null, '', window.location.pathname);
 }
 
 document.getElementById('cc-modal-overlay').addEventListener('click', e => { if(e.target === e.currentTarget) ccCloseModal(); });
 document.addEventListener('keydown', e => { if(e.key === 'Escape') { ccCloseModal(); closeModal(); } });
+
+// Handle browser back/forward
+window.addEventListener('popstate', () => {
+  const hash = window.location.hash;
+  if (!hash) { ccCloseModal(); return; }
+  ccHandleHash(hash);
+});
+
+// Hash format: #tech-0, #fiction-0, #novel-2 etc.
+function ccHandleHash(hash) {
+  const match = hash.match(/^#(tech|fiction|novel)-(\d+)$/);
+  if (!match) return;
+  const type = match[1];
+  const idx = parseInt(match[2]);
+  // Make sure the right panel is open first
+  const panelMap = {tech:1, fiction:2, novel:3};
+  ccShowPanel(panelMap[type]);
+  setTimeout(() => ccOpenArticle(type, idx), 300);
+}
+
+// On page load, check if URL has a hash and auto-open modal
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.location.hash) {
+    setTimeout(() => ccHandleHash(window.location.hash), 800);
+  }
+});
+
 ccRenderUI();
 </script>
 </body>
