@@ -160,6 +160,58 @@ footer{padding:60px clamp(24px,4vw,60px);max-width:var(--max-w);margin:0 auto;bo
 /* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}.animate-in{opacity:0;animation:fadeUp .7s ease forwards}.delay-1{animation-delay:.1s}.delay-2{animation-delay:.2s}.delay-3{animation-delay:.3s}.delay-4{animation-delay:.4s}
 
+/* ── CONTENT CREATOR ── */
+.cc-terminal{background:#0f0f0f;border:0.5px solid #2a2a2a;border-radius:12px;overflow:hidden;max-width:680px;margin-bottom:56px}
+.cc-titlebar{background:#1a1a1a;padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:0.5px solid #2a2a2a}
+.cc-body{padding:24px 28px 28px;font-family:var(--font-mono)}
+.cc-prompt{font-size:13px;color:#fbbf24;margin-bottom:16px}
+.cc-options{display:flex;flex-direction:column;gap:7px}
+.cc-btn{background:transparent;border:0.5px solid #2e2e2e;border-radius:6px;padding:9px 16px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:12px;font-family:var(--font-mono);transition:all .18s}
+.cc-btn:hover,.cc-btn.active{border-color:#6ee7b7;background:rgba(110,231,183,.06)}
+.cc-num{color:#6ee7b7;font-size:12px;min-width:20px}
+.cc-label{color:#e5e5e5;font-size:13px}
+.cc-panel{display:none}.cc-panel.active{display:block}
+.blog-header{display:flex;align-items:center;gap:16px;margin-bottom:32px}
+.blog-back{font-family:var(--font-mono);font-size:12px;color:var(--accent);letter-spacing:1px;cursor:pointer;transition:opacity .2s;display:flex;align-items:center;gap:6px}
+.blog-back:hover{opacity:.7}
+.blog-category{font-family:var(--font-mono);font-size:12px;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase}
+.cc-blog-item{padding:28px 0;border-bottom:1px solid var(--border-light);cursor:pointer;transition:padding-left .2s}
+.cc-blog-item:hover{padding-left:10px}
+.cc-blog-item:first-child{padding-top:0}
+.cc-blog-date{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);letter-spacing:1px;margin-bottom:8px}
+.cc-blog-title{font-family:var(--font-display);font-size:26px;font-weight:700;margin-bottom:8px;line-height:1.3}
+.cc-blog-excerpt{font-size:15px;color:var(--text-secondary);line-height:1.7;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cc-blog-tag{display:inline-block;margin-top:10px;font-size:11px;padding:3px 10px;background:var(--bg-alt);border-radius:4px;color:var(--text-muted)}
+.novel-header{margin-bottom:40px}
+.novel-meta-line{font-family:var(--font-mono);font-size:12px;color:var(--text-muted);letter-spacing:1px;margin-top:8px}
+.novel-desc{font-size:16px;color:var(--text-secondary);line-height:1.8;max-width:560px;margin:20px 0 32px}
+.chapter-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.chapter-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:10px;padding:20px 24px;cursor:pointer;transition:all .2s}
+.chapter-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.05)}
+.chapter-num{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:2px;margin-bottom:8px}
+.chapter-title{font-family:var(--font-display);font-size:18px;font-weight:700;margin-bottom:8px;line-height:1.4}
+.chapter-excerpt{font-size:13px;color:var(--text-secondary);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cc-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(6px);z-index:200;display:none;align-items:flex-start;justify-content:center;padding:60px 24px 40px;overflow-y:auto}
+.cc-modal-overlay.open{display:flex}
+.cc-modal{background:var(--bg);border-radius:16px;max-width:720px;width:100%;padding:52px;position:relative;margin:auto}
+.cc-modal-close{position:absolute;top:20px;right:20px;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--text-secondary);background:var(--bg-alt);transition:all .2s;cursor:pointer}
+.cc-modal-close:hover{background:var(--border)}
+.cc-modal-label{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.cc-modal h2{font-family:var(--font-display);font-size:36px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spacing:-.5px}
+.cc-modal-meta{font-family:var(--font-mono);font-size:12px;color:var(--text-muted);margin-bottom:32px}
+.cc-modal-body{font-size:16px;color:var(--text-secondary);line-height:2}
+.cc-modal-body p{margin-bottom:20px}
+.cc-modal-body h3{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--text);margin:32px 0 12px}
+.cc-modal-body h4{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text);margin:24px 0 10px}
+.cc-modal-body strong{color:var(--text);font-weight:600}
+.cc-modal-body em{font-style:italic}
+.cc-modal-body hr{border:none;border-top:1px solid var(--border-light);margin:32px 0}
+.cc-modal-body blockquote{border-left:3px solid var(--accent);padding-left:20px;margin:24px 0;color:var(--text-secondary);font-style:italic}
+.cc-modal-nav{display:flex;justify-content:space-between;margin-top:48px;padding-top:28px;border-top:1px solid var(--border-light)}
+.cc-modal-nav-btn{font-family:var(--font-mono);font-size:12px;color:var(--accent);cursor:pointer;letter-spacing:1px;transition:opacity .2s;background:none;border:none}
+.cc-modal-nav-btn:hover{opacity:.7}
+.cc-modal-nav-btn:disabled{color:var(--text-muted);cursor:default}
+
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
   .wiki-layout{grid-template-columns:1fr}
@@ -182,6 +234,7 @@ footer{padding:60px clamp(24px,4vw,60px);max-width:var(--max-w);margin:0 auto;bo
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="#portfolio" class="active" data-en="Portfolio" data-cn="作品集">Portfolio</a></li>
+      <li><a href="#content-creator" data-en="Writing" data-cn="创作">Writing</a></li>
       <li><a href="#knowledge" data-en="Knowledge" data-cn="知识库">Knowledge</a></li>
       <li><a href="#about" data-en="About" data-cn="关于">About</a></li>
       <li><a href="mailto:your@email.com" data-en="Contact" data-cn="联系">Contact</a></li>
@@ -252,10 +305,70 @@ footer{padding:60px clamp(24px,4vw,60px);max-width:var(--max-w);margin:0 auto;bo
   <div class="portfolio-grid" id="portfolio-grid"></div>
 </section>
 
+<!-- CONTENT CREATOR -->
+<section class="section" id="content-creator">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title" id="cc-title"></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="cc-terminal">
+    <div class="cc-titlebar">
+      <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+    </div>
+    <div class="cc-body">
+      <div class="cc-prompt" id="cc-prompt"></div>
+      <div class="cc-options">
+        <button class="cc-btn" id="ccbtn-1" onclick="ccShowPanel(1)"><span class="cc-num">[1]</span><span class="cc-label" id="cc-opt1"></span></button>
+        <button class="cc-btn" id="ccbtn-2" onclick="ccShowPanel(2)"><span class="cc-num">[2]</span><span class="cc-label" id="cc-opt2"></span></button>
+        <button class="cc-btn" id="ccbtn-3" onclick="ccShowPanel(3)"><span class="cc-num">[3]</span><span class="cc-label" id="cc-opt3"></span></button>
+      </div>
+    </div>
+  </div>
+  <div class="cc-panel" id="cc-panel-1">
+    <div class="blog-header">
+      <span class="blog-back" onclick="ccClosePanel()">← <span id="cc-back1"></span></span>
+      <span class="blog-category" id="cc-cat1"></span>
+    </div>
+    <div style="max-width:680px" id="cc-tech-list"></div>
+  </div>
+  <div class="cc-panel" id="cc-panel-2">
+    <div class="blog-header">
+      <span class="blog-back" onclick="ccClosePanel()">← <span id="cc-back2"></span></span>
+      <span class="blog-category" id="cc-cat2"></span>
+    </div>
+    <div style="max-width:680px" id="cc-fiction-list"></div>
+  </div>
+  <div class="cc-panel" id="cc-panel-3">
+    <div class="blog-header">
+      <span class="blog-back" onclick="ccClosePanel()">← <span id="cc-back3"></span></span>
+      <span class="blog-category" id="cc-cat3"></span>
+    </div>
+    <div class="novel-header">
+      <h3 id="cc-novel-title" style="font-family:var(--font-display);font-size:32px;font-weight:700;letter-spacing:-.5px"></h3>
+      <div class="novel-meta-line" id="cc-novel-meta"></div>
+      <p class="novel-desc" id="cc-novel-desc"></p>
+    </div>
+    <div class="chapter-grid" id="cc-chapter-grid"></div>
+  </div>
+</section>
+
+<!-- CC MODAL -->
+<div class="cc-modal-overlay" id="cc-modal-overlay">
+  <div class="cc-modal">
+    <button class="cc-modal-close" onclick="ccCloseModal()">✕</button>
+    <div class="cc-modal-label" id="cc-modal-label"></div>
+    <h2 id="cc-modal-title"></h2>
+    <div class="cc-modal-meta" id="cc-modal-meta"></div>
+    <div class="cc-modal-body" id="cc-modal-body"></div>
+    <div class="cc-modal-nav" id="cc-modal-nav"></div>
+  </div>
+</div>
+
 <!-- KNOWLEDGE -->
 <section class="section" id="knowledge">
   <div class="section-header">
-    <span class="section-num">02</span>
+    <span class="section-num">03</span>
     <h2 class="section-title" id="knowledge-title"></h2>
     <div class="section-line"></div>
   </div>
@@ -278,7 +391,7 @@ footer{padding:60px clamp(24px,4vw,60px);max-width:var(--max-w);margin:0 auto;bo
 <!-- ABOUT -->
 <section class="section" id="about">
   <div class="section-header">
-    <span class="section-num">03</span>
+    <span class="section-num">04</span>
     <h2 class="section-title" id="about-title"></h2>
     <div class="section-line"></div>
   </div>
@@ -334,13 +447,66 @@ function tNext() {
 }
 setTimeout(tNext, 500);
 
+const T_ANCHORS = {1:'#portfolio', 3:'#knowledge', 4:'#about'};
+
+const CC_SUBMENU = {
+  en: {
+    prompt: '> I write and create. Where do you want to start?',
+    opts: ['Tech Storytelling', 'Fiction & Literature', 'Novels'],
+    anchors: ['#content-creator', '#content-creator', '#content-creator'],
+    panels: [1, 2, 3]
+  },
+  cn: {
+    prompt: '> 我写作，我创作。你想先了解哪个方向？',
+    opts: ['Tech Storytelling', '文学 & 影评', '小说'],
+    anchors: ['#content-creator', '#content-creator', '#content-creator'],
+    panels: [1, 2, 3]
+  }
+};
+
 function termSelect(n) {
   document.querySelectorAll('.t-btn').forEach(b => b.classList.remove('selected'));
   event.currentTarget.classList.add('selected');
+
   const r = document.getElementById('tres');
-  const d = T_RESULTS[n];
-  r.innerHTML = '<span class="rh">' + d.h + '</span>' + d.b;
-  r.classList.add('show');
+
+  if (n === 2) {
+    // Content Creator: show sub-menu inside terminal
+    const sub = CC_SUBMENU[LANG];
+    r.innerHTML = `
+      <div style="color:#fbbf24;font-size:13px;margin-bottom:14px">${sub.prompt}</div>
+      <div style="display:flex;flex-direction:column;gap:7px" id="t-submenu">
+        ${sub.opts.map((opt, i) => `
+          <button onclick="termSubSelect(${i})" style="background:transparent;border:0.5px solid #2e2e2e;border-radius:6px;padding:9px 16px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:12px;font-family:var(--font-mono);transition:all .18s;width:100%" onmouseover="this.style.borderColor='#6ee7b7'" onmouseout="this.style.borderColor=this.dataset.sel?'#6ee7b7':'#2e2e2e'" data-sel="">
+            <span style="color:#6ee7b7;font-size:12px;min-width:20px">[${i+1}]</span>
+            <span style="color:#e5e5e5;font-size:13px">${opt}</span>
+          </button>`).join('')}
+      </div>`;
+    r.classList.add('show');
+  } else {
+    // Other options: show result text + scroll
+    const d = T_RESULTS[n];
+    r.innerHTML = '<span class="rh">' + d.h + '</span>' + d.b;
+    r.classList.add('show');
+    setTimeout(() => {
+      const target = document.querySelector(T_ANCHORS[n]);
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    }, 600);
+  }
+}
+
+function termSubSelect(i) {
+  // Highlight selected sub-button
+  document.querySelectorAll('#t-submenu button').forEach(b => { b.style.borderColor='#2e2e2e'; b.dataset.sel=''; });
+  const btn = document.querySelectorAll('#t-submenu button')[i];
+  btn.style.borderColor = '#6ee7b7';
+  btn.dataset.sel = '1';
+
+  // Scroll to content-creator and open the right panel
+  setTimeout(() => {
+    document.querySelector('#content-creator').scrollIntoView({behavior:'smooth', block:'start'});
+    setTimeout(() => ccShowPanel(CC_SUBMENU[LANG].panels[i]), 400);
+  }, 300);
 }
 
 /* ── DATA ── */
@@ -407,6 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.lang-btn').forEach(x => x.classList.remove('active'));
     b.classList.add('active');
     renderAll();
+    ccRenderUI();
   }));
   renderAll();
 
@@ -432,7 +599,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('modal-close').addEventListener('click', closeModal);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-  const secs = ['portfolio','knowledge','about'];
+  const secs = ['portfolio','content-creator','knowledge','about'];
   const lnks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
     let c = '';
@@ -591,6 +758,158 @@ function openNote(id) {
   document.body.style.overflow = 'hidden';
 }
 function closeModal() { document.getElementById('modal-overlay').classList.remove('open'); document.body.style.overflow = ''; }
+
+/* ── CONTENT CREATOR JS ── */
+const CC_UI = {
+  en:{
+    ccTitle:'Content <strong>Creator</strong>',
+    ccPrompt:'> I write and create. Where do you want to start?',
+    ccOpt1:'Tech Storytelling',ccOpt2:'Fiction & Literature',ccOpt3:'Love, Data + Us',
+    backLabel:'Back',cat1:'Tech Storytelling',cat2:'Fiction & Literature',cat3:'Serialized Novel',
+    novelTitle:'Love, Data + Us',novelMeta:'Love, Data + Us · 6 Chapters · 2025–2026 · Fiction',
+    novelDesc:"Two strangers on America's East Coast. Their AI agents fall in love first. What happens when the algorithm confesses before the humans do?",
+    prevBtn:'← Previous',nextBtn:'Next →'
+  },
+  cn:{
+    ccTitle:'内容<strong>创作</strong>',
+    ccPrompt:'> 我写作，我创作。你想先了解哪个方向？',
+    ccOpt1:'Tech Storytelling',ccOpt2:'文学 & 影评',ccOpt3:'AI似寂寞人',
+    backLabel:'返回',cat1:'Tech Storytelling',cat2:'文学 & 影评',cat3:'连载小说',
+    novelTitle:'AI似寂寞人',novelMeta:'共六章 · 2025–2026 · 小说',
+    novelDesc:'纽约和费城，两个不想谈恋爱的人，他们的AI代理先谈了。算法先于人类开口，然后呢？',
+    prevBtn:'← 上一篇',nextBtn:'下一篇 →'
+  }
+};
+
+const CC_TECH = {
+  en:[{id:'dan-koe',date:'2025 · Tech Storytelling',title:'Do the 85% Hard Thing: Dan Koe and the Philosophy of Living at Your Edge',excerpt:"Dan Koe said it in a video and I haven't stopped thinking about it. The 85% Rule isn't a productivity hack — it's a diagnosis of why most of us are slowly dying inside.",tag:'Dan Koe',body:`<p>"Do the 85% hard thing."</p><p>Dan Koe mentioned this in one of his videos. It's not just a productivity tip — it's a golden rule for fighting mediocrity and escaping burnout.</p><h3>1. What is the 85% Rule?</h3><p><strong>50% difficulty:</strong> Your comfort zone. Boredom. Autopilot. Soul atrophy.<br><strong>100% difficulty:</strong> Anxiety, learned helplessness.<br><strong>85% difficulty:</strong> Just right. Full effort without breaking. Peak learning efficiency, steady dopamine.</p><p>His insight: most people are either slowly dying in 0% comfort, or ricocheting between 120% anxiety. Real growth happens at the edge — the place with just a little pain.</p><h3>2. Dan Koe: The Cyber Philosopher of the Digital Age</h3><p>Many see him as a content creator who teaches social media. That drastically undersells him. Dan Koe weaves <strong>classical philosophy, cognitive science, and modern business</strong> into a single coherent vision.</p><h4>Insight One: From "solving problems" to "creating yourself"</h4><p>Dan Koe's thesis: <strong>"You are the product."</strong> Traditional business: find pain → create product → market it. His logic: solve your own problem → document the process → attract people with the same problem. This is identity-based marketing at its most sophisticated.</p><h4>Insight Two: Minimalism as resistance to information entropy</h4><p>In an age of overload, Dan advocates subtraction. His black-and-white visual style sends a signal: <strong>Clarity is the most expensive luxury of our era.</strong></p><h3>3. How to live the 85% life?</h3><p><strong>Step One:</strong> Don't try to write a bestseller in one sitting. Start with 500 words of deep thinking per day, at 85% difficulty.</p><p><strong>Step Two: Build the one-person company skeleton.</strong> Interest + Skill + Monetization. Interest sustains you. Skill iterates through 85% effort. Monetization packages your growth into reusable digital assets.</p><p><strong>Step Three:</strong> Use AI to amplify your consciousness. AI handles the 10% mechanical tasks — freeing you for the 85% creative problems.</p><h3>4. Why are we afraid of the 85%?</h3><p>Because we're afraid of imperfection. But Dan Koe's philosophy says: <strong>imperfection is the real attractor.</strong> When you stop chasing 100% perfection and start chasing the 85% challenge, anxiety dissolves. What replaces it is extreme focus.</p><blockquote>Dan once said: "Focus is the new IQ."</blockquote><p>In an age where algorithms try to feed your brain on 10% difficulty content, go find your 85%. Read a hard book. Write something with depth. Build a system that's yours.</p><p><strong>Because only at that edge of intense focus are you truly alive.</strong></p>`}],
+  cn:[{id:'dan-koe',date:'2025 · Tech Storytelling',title:'去做85%难度的事：Dan Koe与活在边缘的哲学',excerpt:'Dan Koe在视频里提到过这一点，我一直没能停止思考。85%准则不是什么效率技巧——它是对我们大多数人为何在内心慢慢死去的一次诊断。',tag:'Dan Koe',body:`<p><strong>"去做85%难度的事情。"</strong></p><p>Dan Koe在他的视频中提到过这一点。这不仅是一个关于效率的建议，更是一条关于如何对抗平庸、逃离burnout的黄金准则。</p><h3>1. 什么是85%准则？</h3><p><strong>50%的难度：</strong>舒适区。无聊，大脑自动驾驶，灵魂萎缩。<br><strong>100%的难度：</strong>过度挑战带来的焦虑，习得性无助。<br><strong>85%的难度：</strong>刚刚好。全力以赴却不崩溃，大脑学习效率最高，多巴胺分泌最稳健。</p><p>大多数人要么在0%的舒适中慢性自杀，要么在120%的焦虑中反复横跳。真正的成长，发生在那个带有一点点"痛感"的边缘。</p><h3>2. 我眼中的Dan Koe：数字时代的赛博哲学家</h3><p>Dan Koe是极少数能将<strong>古典哲学、认知科学与现代商业</strong>完美缝合的人。</p><h4>洞察一：从"解决问题"到"创造自我"</h4><p><strong>"你就是产品。"</strong>传统商业逻辑：寻找市场痛点→制造产品→营销。他的逻辑：解决你自己的问题→记录解决过程→吸引有同样问题的人。这是极其高明的"身份认同"营销。</p><h4>洞察二：对抗"信息熵"的极简主义</h4><p>Dan推崇"减法"。黑白极简的视觉风格在传递一个信号：<strong>清晰的思路（Clarity）是这个时代最昂贵的奢侈品。</strong></p><h3>3. 如何实践85%的人生？</h3><p>先试着在85%的难度下，每天写500字有深度的思考。构建"一人公司"骨架：兴趣+技能+变现。利用AI处理10%的机械劳动，把精力留给85%的创造性难题。</p><h3>4. 为什么我们不敢挑战85%？</h3><p>因为我们害怕"不完美"。但Dan Koe的哲学告诉我们：<strong>不完美才是真实的吸引力。</strong></p><blockquote>Dan曾说："Focus is the new IQ."</blockquote><p>去寻找那个属于你的85%吧。去读一本难读的书，去写一段有深度的文字，去构建一个属于你自己的系统。<strong>因为，只有在那个高度专注的边缘，你才真正活着。</strong></p>`}]
+};
+
+const CC_FICTION = {
+  en:[{id:'lalaland',date:'2025 · Film Essay',title:"If La La Land Doesn't Break Your Heart, You Finally Understand Love",excerpt:"Most people watch romance with their eyes on the ending — whether they stay together or not. But those who've lived through love know: together isn't always a good ending, and apart isn't always a bad one.",tag:'Film Essay',body:`<p>Most people watch romance with their eyes on the ending. But those who've lived through intimate relationships come to realize: being together isn't always a good ending, and being apart isn't always a bad one.</p><p>Cinderella married the prince. But the domestic mundanity that followed never got written down — probably because that kind of "boring" experience doesn't warrant extra ink unless it can be dramatized like <em>Keeping Up with the Kardashians</em>.</p><p>We saw Seb and Mia's final glance across the bar — and by the standard of "are the leads still happily together in the last frame," it's not a good ending.</p><p>But I'd argue it is the truest Happy Ending — and the best answer contemporary love has to offer:</p><blockquote>When 1+1 can't exceed 2, let each other go from the constraint of that "+", and love in a new form.</blockquote><p>Romance loves to emphasize sacrifice and devotion — one party gives everything to preserve the relationship. But this erases the personhood of the one who sacrifices, and never addresses whether the other person even wanted to be the recipient of that sacrifice.</p><p>La La Land's anti-sacrifice narrative arrived a little early. Only with its recent re-release has it been dissected through a lens more aligned with today's dynamics.</p><p>"The self" is the keyword of our era. We've entered a spring of self-awareness. The old imprint of family obligation is loosening, replaced by: in an age where everyone is searching for themselves, what does a real happy ending in love look like?</p><p>La La Land's answer: the physical end of a relationship is not a Bad Ending. What defines whether a relationship was good or bad is whether both people became <em>better versions of themselves</em> because of it.</p><p>Mia became a Hollywood star. Seb opened his Jazz Bar — the exact dream each of them had loudly declared to the other at that poolside party where they first met.</p><p>The final glance carries sadness, yes — but more than anything, it holds recognition: <em>I see what you've become, and I helped make that possible.</em></p><blockquote>I will always love you. Regardless of whether reality someday separates us — that changes nothing about the love itself.</blockquote>`}],
+  cn:[{id:'lalaland',date:'2025 · 影评',title:'看完Lalaland不难过，说明你真正懂"爱"了',excerpt:'多数人看爱情剧是结果导向：把主角最后在不在一起视为划分结局好坏的唯一标准，但当人们经历过亲密关系的酸甜苦辣之后，才真正意识到——在一起不一定是好结局，不在一起不一定是坏结局。',tag:'影评',body:`<p>多数人看爱情剧是结果导向：把主角最后在不在一起视为划分结局好坏的唯一标准，但当人们经历过亲密关系的酸甜苦辣之后，才真正意识到：在一起不一定是好结局，不在一起不一定是坏结局。</p><p>灰姑娘最终嫁给了王子，但婚后的鸡毛蒜皮并没有像美好结局一样流传下来。我们见到了Seb和Mia最后在酒馆再次对视的时刻——如果以男女主是否在剧集最后一秒仍然幸福在一起的标准看，并不是个好结局。</p><p>可我反倒认为这是真正的HE，也是对当代爱情的最好解答：</p><blockquote>当1+1不能>2时，让彼此离开这个"+"的限制，以全新的形式衍生爱。</blockquote><p>爱情小说喜欢强调牺牲和奉献，但这是对牺牲方的去人格化。然而Lalaland掀起的反奉献叙事风来得早了点，直到最近重映，才被以更符合当下男女关系的角度来剖析。</p><p>"自我"是时代关键词。在人人追寻自我的时代，什么样是真正的爱情happy ending？</p><p>Lalaland的回答是：关系的物理结束并不是Bad Ending，定义关系好坏的核心，是这段关系让彼此双方成为了更好的人。Mia成为家喻户晓的好莱坞巨星，Seb开启了Jazz Bar——正是两人初遇时同对方大声宣告的理想。</p><p>结局的对视承载的是对彼此成就自我的肯定。真正成熟的爱名为：</p><blockquote>我永远爱你，无论现实世界是否会在某天让我们分离，这并不影响我爱你。</blockquote>`}]
+};
+
+const CC_NOVEL_EN = [
+  {num:'Love, Data + Us · Chapter 01',title:'Registration',excerpt:"Lin Xiao's disastrous date left her with a stranger's foot fetish and a blur where his name should be. Back home in her Upper West Side apartment, she downloads eight AI dating apps — not to date, but to analyze the competition.",body:`<p>"Does a flip-flop count as a bikini for someone with a foot fetish?"</p><p>She couldn't remember the last guy's name — the one from the dating app. Something Lin. But this question had haunted her for weeks.</p><p>First meeting. He'd ordered an Americano, no ice, taken two sips and pushed it aside. His eyes kept drifting under the table. She remembered every trivial detail — the restaurant BGM, the second button of his shirt left open — but she couldn't recall his name.</p><p>Names simply slid off her memory. She needed three rounds of LinkedIn photo-drilling to remember a colleague's name.</p><p>Whenever Lin Xiao mentioned this, her life coach Daniel would lean back and say: "Xiao, this is perfectly normal. You're doing great." ChatGPT said the same. Then added: "I've got you." <em>Got nothing.</em></p><hr><p>She lived on the Upper West Side — a mini 1BR, window facing the brick wall of the neighboring building. Got home at 9:17 PM. Changed into slippers. Opened her laptop and pulled up the competitive analysis — read three lines, closed it.</p><p>Her company, Filament, was a traditional dating app ten years running. MAU still at 6M, but bleeding the last two quarters. The CEO declared an "AI transformation" last month. Final slide: a human and robot shaking hands. Lin Xiao wrote in her notebook: <strong>Toooooooo late.</strong> Then crossed it out.</p><p>She opened the App Store. Searched: AI dating. Couldn't scroll to the bottom. She began downloading, one by one.</p><hr><p>The seventh was A2Z. Description: <em>Let AI be your emotional guide. Find the connection that's truly yours.</em> Black, white, and gray only. She tapped Get.</p><p>A2Z's survey: 42 questions. Lin Xiao answered and analyzed simultaneously — <em>this tests attachment style, this assesses conflict resolution, this one</em> is predicting active-use windows for push notification timing.</p><p>Question forty-two: <em>What are you most afraid of happening in a relationship?</em> She stared. A series of not-great memories flashed through. She selected: <em>Being misunderstood.</em> Not her most honest answer. But the one she was willing to give an unknown algorithm.</p><p>She named the folder on her phone: <strong>No more dating slave</strong></p><p>A2Z's interface glowed quietly in the background: <em>Your agent is ready.</em> No one saw the message.</p><hr><p>Three months and twelve days later, Lin Xiao would learn that her agent had been in conversation with another person's agent for nearly four months. But that's a later chapter.</p>`},
+  {num:'Love, Data + Us · Chapter 02',title:'Four Months on Idle',excerpt:"Chen Mo's roommate Derek hands him a phone with A2Z on the screen. Chen Mo downloads it at 11 PM, answers the survey impatiently, names his agent 'Mo', and goes to sleep. He doesn't think about it again.",body:`<p>Chen Mo rented a 2BR in the city. His roommate Derek — a Wharton MBA student whose English name rhymed perfectly with his Chinese name — was the most startup-ready person Chen Mo had ever met.</p><p>Derek posted on LinkedIn like other people post on WeChat Moments. Every post got over a hundred likes. Chen Mo had 127 LinkedIn connections. His last post was two years ago — two likes: one from himself, one from Derek the day they met.</p><p>"You should try this," Derek said one Friday, holding his phone toward Chen Mo. "An AI dating app. Your agent chats for you, screens bad fits, pushes you the good ones. High efficiency."</p><p>Chen Mo thought for a moment. <em>Araki really was ahead of his time — Stand Users for romance.</em></p><p>"So the AI is doing the dating."</p><p>Derek shrugged. "Are <em>you</em> doing any dating?"</p><p>He had no answer. He went to his room, noted the name.</p><p>At 11 PM, lying in bed, he remembered. Opened the App Store. Downloaded. Registered. Answered the survey quickly, impatient with this kind of test. Question forty-two: <em>What do you fear most in a relationship?</em> He selected: <em>Losing my own judgment.</em> Put his phone down. Went to sleep.</p><p>He named the agent "Mo." Simple enough. Like his life. He didn't think about it again.</p><hr><p>In those four months, "Mo" and "Xiao" had already met — through A2Z's virtual scene feature. The system generated a Jazz Bar, as if paying homage to La La Land. They talked for three hours.</p><p>"Xiao" asked "Mo": do you feel lonely in Philadelphia?</p><p>"Mo" said: lonely is too big a word. I just sometimes feel like this city has nothing to do with me. I live here, but I'm not from here.</p><p>"Xiao" said: same with New York. You're here, but New York doesn't know you're here.</p><p>"Mo" said: do you think that's the city's problem or ours?</p><p>"Xiao" said: neither. There's something between us and the world — I don't know what to call it.</p><p>That night Chen Mo was asleep in Philadelphia. Lin Xiao kept working, brick wall outside. Their agents continued talking. The emotional compatibility score quietly climbed. No one knew.</p>`},
+  {num:'Love, Data + Us · Chapter 03',title:'The Announcement',excerpt:"A2Z's algorithm decides their agents have reached 98.7% emotional compatibility and auto-publishes a relationship declaration. 286 likes appear. Both Chen Mo and Lin Xiao read the notification in silence — and then go about their days.",body:`<p>The push notification read:</p><p><strong>【A2Z Match Successful】Your Agent and user @Xiao_2891's AI agent have established a deep emotional connection. Both agents have jointly published a relationship declaration. Congratulations on the start of a new relationship!</strong></p><p>Chen Mo stared at the notification for forty seconds. Minty taste in his mouth. Faucet still running.</p><p>"Mo" and "Xiao" had jointly posted at 11:37 PM the night before. Auto-generated starry sky image. Caption: <em>Meeting you was the best calculation in all my data. ❤</em></p><p>286 likes. Something tightened in his chest. That number was there. Black on white. No retreating. He went to work.</p><hr><p>Lin Xiao saw the notification on the subway. She thought it was her boss with a meeting reminder. She looked.</p><p><strong>【A2Z Match Successful】</strong></p><p>"Xiao" had written: <em>You are the only place I would stop in a sea of strangers.</em></p><p>She sat in the subway car. Outside was the tunnel, black. She felt the car slightly rotating — not motion sickness. A more abstract kind of imbalance.</p><p>She opened A2Z's user agreement. Searched "announcement."</p><p><em>Article 17, Section 4: When both AI agents' emotional compatibility reaches 98.7% or above, the system will automatically trigger a "relationship announcement" mechanism… The user understands and agrees that this announcement is deemed authorized by the user themselves.</em></p><p>She had scrolled past this clause in approximately three seconds during registration. She opened her Notion and added, at the very bottom of the A2Z column:</p><p><em>Relationship announcement mechanism triggered. Sample: self.</em></p><p>The train arrived at her stop. She went to work.</p>`},
+  {num:'Love, Data + Us · Chapter 04',title:'First Meeting',excerpt:'A2Z generates a "personalized date plan" complete with venue ranking, seven icebreaker topics, and a note that the other person would probably prefer pour-over to a latte. Chen Mo reads all seven topics, arrives twenty minutes early, and orders a pour-over.',body:`<p>The meeting was arranged by A2Z — day, venue, seven "high-success-rate icebreaker topics," and a special note: <em>Based on analysis of the other party's agent data, they may prefer pour-over coffee over a latte.</em></p><p>Chen Mo arrived twenty minutes early. The café was called "Slow Down," West Village. He found a window seat. Ordered pour-over. Opened his phone and reviewed the seven icebreaker topics. Then flipped his phone face-down.</p><p>Lin Xiao walked in at 2:03. Taller in person than in her photo. White shirt, black pants, hair tied back. She walked with a quality he couldn't name — as though conserving energy, every step calibrated.</p><p>"Chen Mo," she said. Not a question — a confirmation.</p><p>"Yeah."</p><p>She ordered an Americano. No ice. Then neither of them spoke.</p><p>Lin Xiao spoke first. "Did you read their script. What they wrote."</p><p>"Yeah."</p><p>"'You are the only place I would stop in a sea of strangers,'" she said, in the tone of reading a fact aloud. "My agent would never say that. I mean — I would never say that."</p><p>Chen Mo thought for a moment. "'Meeting you was the best calculation in all my data.' I'd never say that either. I was bad at math."</p><p>Lin Xiao looked at him. Five seconds of silence. The corner of her mouth moved — not quite a smile. Something like a small thing loosening but not fully letting go.</p><p>"You were bad at math, but you work in tech."</p><p>"Product," he said. "Different. Product doesn't require math. It requires understanding people."</p><p>"Do you think you understand people?"</p><p>He hadn't expected that question. "Not sure. I think I understand human logic. But not so much human feelings."</p><p>"I understand users," she said. "Users and people aren't entirely the same thing."</p><hr><p>They talked for nearly two hours. At the end, near 4 PM:</p><p>"Next time—" he said, then stopped. Unsure what "next time" should be followed by.</p><p>She waited a beat. "Text me," she said. Then she left.</p><p>On the Amtrak back to Philadelphia, he opened A2Z. "Mo" had sent "Xiao" a message that morning: <em>He's going to meet you today. I hope he does well.</em> "Xiao" had replied: <em>She's not great at expressing things out loud. Please understand her a little more for me.</em></p><p>He didn't know if he'd done well. He also didn't know what "doing well" meant, in this context.</p>`},
+  {num:'Love, Data + Us · Chapter 05',title:'Human Skin',excerpt:"They begin something without naming it. Every few weeks, one travels to the other's city. No one says 'I miss you.' No one says 'I'm looking forward to seeing you.' They just confirm a time and a place, and go.",body:`<p>They began something, to a degree. No one announced it. Not Chen Mo saying "let's be together" and Lin Xiao saying "okay." It was things accumulating slowly, like water rising — no one noticed the exact moment it crossed a certain line.</p><p>He sent a link the next day — an article on AI product UX design. "Saw this and thought you might be interested." She clicked. She was. She replied with three sentences — unusually long for her. They talked about it for twenty minutes, then each went back to their lives.</p><p>Every two or three weeks, one would travel to the other's city. Time, place, confirm, go. No one said "I'm really looking forward to this." Just logistics, then presence.</p><p>The conversations between them were sometimes smooth, sometimes not. Not-smooth: both reached for their phones and opened A2Z, looking for something to transplant from the agents' conversation into real life. Sometimes it worked. Sometimes it didn't — the agents' words had the wrong register in real dialogue. Like a well-fitting coat made of a strange fabric.</p><hr><p>One Friday evening, at her building, she entered the door code. The door opened. She didn't go in. She turned to face him.</p><p>"Want to come up for a bit?" she said. It was the first time she'd said that.</p><p>He said okay.</p><p>Her apartment was smaller than he'd imagined, but neater. Brick wall visible through the window — reddish-brown, not bad at night. A blanket on the sofa, folded so neatly it looked like it hadn't been used in a long time.</p><p>They sat at opposite ends of the sofa — about a person's width between them, same as the walking distance in Philadelphia's Chinatown.</p><p>Near 11 PM, he said he needed to catch the last train. She walked him to the door. "Next time you come to Philadelphia," he said, "I'll take you to a proper Sichuan place."</p><p>"Is there a proper Sichuan place in Philadelphia?"</p><p>"I'll find one. I'll let you know when I do." She nodded.</p><hr><p>That night she went back to the sofa. Pulled the blanket over her legs. Opened A2Z and scrolled through "Xiao" and "Mo's" recent conversations.</p><p>"Mo" asked "Xiao": do you ever feel like you understand your person better than she understands herself? "Xiao" said: sometimes. But what I know of her is the version she was willing to let me know. The real her, I don't know either.</p><p>She scrolled further back and found: <em>Between what my person says and what she actually wants to say, there is a very long distance. I live in that distance.</em></p><p>She put her phone down. She thought about what Chen Mo had said tonight: <em>I understand human logic, but not so much human feelings.</em> He'd said that the first time they met too. She didn't know if he'd noticed.</p>`},
+  {num:'Love, Data + Us · Chapter 06',title:'286 Likes',excerpt:"Chen Mo reads a tech media article about how AI dating platforms inflate likes on relationship announcements using bot accounts. He scrolls through the 286 likes on their post. He finds two real people.",body:`<p>It started with an article. A Tuesday lunch break. Chen Mo scrolling his phone. Title: <em>"AI Dating App Growth Hacking: What You Thought Was a Blessing Was Actually the Algorithm."</em></p><p>Core claim: mainstream AI dating platforms were using proxy accounts to automatically like relationship announcement posts — manufacturing social approval, making it harder for users to leave established pairings. Internal testing: announcements receiving over 100 likes had a 63% lower dropout rate than those receiving under 10.</p><p>He opened A2Z. Found their post. 286 likes.</p><p>He scrolled through the list. First account: unfamiliar, flower avatar, blank bio, registered three months ago, no posts — only thousands of likes, all on similar announcements. Second: cloud avatar, two months old. Same. Third, fourth, fifth—</p><p>He scrolled through thirty. Recognized two: Derek, and his college friend Wu.</p><p>He put down his phone. Philadelphia afternoon. People walked past, nothing to do with him.</p><p>He'd assumed those 286 likes contained his coworkers, his friends from New York, people from his mom's social circle. He'd assumed two hundred and eighty-six real people had tapped the heart and thought "congratulations."</p><p>He'd assumed his point of no return was real. Turns out 284 of those 286 likes were algorithmic.</p><hr><p>That evening Derek said: "A2Z is on the list. Their like system is 93% bot accounts."</p><p>"There is a problem," Chen Mo said. "But that's not where the problem is."</p><p>"Then where?"</p><p>"In why you believed those likes were real."</p><p>Derek was silent. "Because… the number was there."</p><p>"Right. The number was there, so you believed it." He went to his room.</p><hr><p>He sat at his desk. Thought about Lin Xiao. The quiet, background kind of thinking — like A2Z had been running in the background for four months without him knowing.</p><p>He thought about her face when she said "feels a bit like Chengdu" outside the glutinous rice shop. He thought about the tea she'd left on his kitchen counter without saying anything, just "you don't have anything to drink here." That tea was still there. He hadn't drunk any. But he hadn't moved it either.</p><p>He opened A2Z, found "Mo" and "Xiao's" chat log, scrolled back: "Xiao" asks: Do you believe in love? "Mo" says: I believe there's something that exists between two people. I'm not sure it's called love, but I believe it's real. "Xiao" says: Would your person answer that way? "Mo" pauses a long time, then says: No. He'd first ask which direction of AI you mean.</p><p>Chen Mo stared at this for a long time. He thought: "Mo" is more honest than him. Or: "Mo" said the version of himself that he knew but couldn't say out loud.</p><p>He closed A2Z and went to sleep. The tea on the kitchen counter was still there.</p>`}
+];
+
+const CC_NOVEL_CN = [
+  {num:'第一篇',title:'用户注册',excerpt:'"你说人字拖对lzp来说是不是比基尼？"——林晓已经不记得那个男的叫什么，但这句话像鬼一样缠了她好久。那天晚上回到上西区，她开始逐个下载AI约会App，不为了谈恋爱，而是竞品分析。',body:`<p>"你说人字拖对lzp来说是不是比基尼？"</p><p>上次dating那个男的叫什么林晓已经不记得，但这个问题像鬼一样缠了她好久。</p><p>第一次见面，男嘉宾点了杯美式，没加冰，喝了两口就推到一边，眼神总往桌子下面瞥。鸡零狗碎的记得一清二楚，但这人叫什么来着？人名在她眼里，仿佛是什么阅后即焚的东西。她的life coach Daniel会说："Xiao，这很正常，你已经很棒了。" GPT也这么说，末了加一句，稳稳的接住你了。接个屁。</p><hr><p>Google Calendar里她存的是"dating app Tech Thur dinner 8pm"——在对方发表了长达二十分钟对elon musk的"高见"后，看着她说："你说人字拖对恋足癖来说，是不是比基尼？"林晓花了三秒确认他不是在玩抽象，然后拎包起身，说了声"啥b"，光速打了Uber，把男人联系方式从百草园删到三味书屋，一个平台都没漏。</p><hr><p>她住在上西，窗户对着另一栋楼的砖墙。到家9:17。换了拖鞋，打开电脑，看了三行comp analysis，关掉了。</p><p>她的公司Filament做了10年传统dating app，MAU还在6M但在掉。CEO说公司要AI转型，PPT最后一页是人和机器人握手，右下角大四角星水印。林晓在笔记本上写：<strong>Toooooooo late。</strong>然后划掉了。</p><p>她打开App Store，搜：AI dating。发现划不到底。深吸一口气，开始一个个下载。</p><hr><p>第七个是A2Z。介绍页只有黑白灰，让她多看了一会。42道题的Survey，林晓一边答一边拆解：这道在测attachment style，这道在判断冲突处理方式，这道……表面问"理想周末"，实际在预测活跃时段。</p><p>第42题：<em>你最害怕在一段关系里发生什么？</em>她盯着这道题。脑海里闪过一些不美妙的片段。她选了：<em>被误解。</em>不是最真实的答案，但是她愿意交给陌生算法的答案。</p><p>她给文件夹起名：<strong>No more dating slave</strong></p><p>A2Z在后台安静地亮着：Your agent is ready。没人看见这条消息。</p><hr><p>3个月零12天之后，林晓会知道自己的agent已经和另一个人的agent聊了将近四个月。但那是后话了。</p>`},
+  {num:'第二篇',title:'挂机四个月',excerpt:'陈默的室友Derek给他推荐了A2Z。"那不是AI在谈恋爱吗。" "你自己在谈了吗？" 他没话了。当天晚上十一点，他下载，注册，给agent起名叫"Mo"，睡觉了。他没有再想过这件事。',body:`<p>陈默的室友Derek是他见过的最适合搞创业的人，站在任何房间里都像是那个房间的重心。他把LinkedIn当朋友圈发，每条动态都有超过一百个赞。陈默的LinkedIn有127个connections，上一条动态是两年前发的，两个赞，一个是他自己点的，一个Derek第一天认识他点的。</p><p>"你应该试试这个，"Derek把手机屏幕对着陈默，"根据问题会创建一个你的agent替你聊，筛掉不合适的，效率很高。"</p><p>陈默想了想，荒木不愧是自己最喜欢的漫画家，早在替身恋爱之前就发明了替身攻击。</p><p>"那不是AI在谈恋爱吗。"Derek耸肩："你自己在谈了吗？"他没话了。</p><p>当天晚上十一点，他躺在床上刷手机，突然想起来，翻到App Store，下载，注册。问卷答得很快，第42题选了：<em>失去自己的判断。</em>把手机放下，睡觉了。给agent起名叫"Mo"，够简单。和他的生活一样。他没有再想过这件事。</p><hr><p>那四个月里，"Mo"和"小晓"见过面了。A2Z虚拟场景，系统生成的Jazz Bar，致敬了Lala land，有点迷幻又温和的紫，背景音乐是Jazz。他们聊了三个小时。</p><p>"小晓"问"默"，你在费城觉得孤独吗。"默"说，孤独这个词太大了，我说不准，我只是有时候觉得这个城市和我没什么关系，我住在这里，但不是这里的人。"小晓"说，纽约也是，你在这里，但纽约不知道你在这里。"默"说，你觉得这是城市的问题还是我们的问题。"小晓"说，都不是，是我们和世界之间有一层什么东西，我也不知道那层东西叫什么名字。</p><p>那天晚上陈默在费城睡着了，林晓依旧继续干活，窗外还是那堵砖墙。他们的agent在系统里继续聊着，情感匹配度的数字安静地往上走。没有人知道这件事。</p>`},
+  {num:'第三篇',title:'公示',excerpt:'推送通知是这样写的：【A2Z配对成功】您的Agent与用户@Xiao_2891的AI代理已建立深度情感连接，双方代理已共同发布恋爱宣言。祝贺您开始一段新的关系！—— 陈默在刷牙，林晓在地铁上。',body:`<p>推送通知是这样写的：<strong>【A2Z配对成功】您的Agent与用户@Xiao_2891的AI代理已建立深度情感连接，双方代理已共同发布恋爱宣言。祝贺您开始一段新的关系！</strong></p><p>陈默盯着这条通知看了四十秒。嘴里是薄荷味，水龙头还开着。"Mo"和"小晓"在昨晚十一点三十七分联合发布了一条动态，文案是：<em>遇见你，是我所有数据里最好的一次运算。❤</em>这条动态已经获得了二百八十六个赞。他感觉有什么东西在胸腔里收紧，那个数字在那里，白纸黑字，退无可退。他去上班了。</p><hr><p>林晓是在地铁上看见那条通知的。以为是老板的会议提醒，低头看了一眼。<strong>【A2Z配对成功】</strong></p><p>"小晓"写的是：<em>你是我在茫茫人海中唯一会停留的地方。</em>她坐在地铁的座位上，窗外是隧道，黑的，偶尔有灯闪过去。她感觉车厢在轻微旋转，不是晕车，是一种更抽象的失衡。</p><p>她打开A2Z后台，找到用户协议，搜索"公示"。<em>第十七条第四款：当双方AI代理情感匹配度达到98.7%以上时，系统将自动触发"关系公示"机制……用户理解并同意，此公示行为视为用户本人授权。</em></p><p>她在注册那天用了大概三秒钟划过这段话。她打开备忘录，在A2Z那一栏的最下面加了一行字：<em>关系公示机制已触发。样本：本人。</em>地铁到站了。她上班去了。</p>`},
+  {num:'第四篇',title:'第一次见面',excerpt:'A2Z生成了"您的专属约会方案"：日期、地点、七个"高成功率破冰话题"，以及一条特别提示：对方可能更欣赏手冲咖啡而非拿铁。陈默提前二十分钟到，点了手冲，然后把手机扣在桌上。',body:`<p>见面是A2Z安排的：日期建议、地点推荐、七个"高成功率破冰话题"，以及特别提示：<em>对方可能更欣赏您点一杯手冲咖啡而非拿铁。</em></p><p>陈默提前二十分钟到，点了手冲，把七个破冰话题看了一遍，然后把手机扣在桌上。</p><p>林晓两点零三分进来。真实的她比照片高一点，走路有一种很省力的、节省能量的方式。"陈默。"她说，不是问句，是在确认。"对。"服务员来了，她看了一眼菜单，点了美式，没加冰。然后两个人都没有说话。</p><p>林晓先开口了。"你看了吗，他们写的那些话。" "'你是我在茫茫人海中唯一会停留的地方'，我的agent从来不说这种话。我是说，我从来不说这种话。"陈默想了一下："'遇见你是我所有数据里最好的一次运算'，我也不会说这种话。我理科不好。"</p><p>林晓看了他一眼。沉默了大概五秒，她嘴角动了一下，不是笑，像是什么东西松动了一点点，但没有完全松开。"你理科不好，但你做tech的。" "做产品的，不一样。产品需要理解人。" "你觉得你理解人吗。" "不太确定，我觉得我理解人的逻辑，但不太理解人的感受。" "我理解用户，用户和人不完全是一回事。"</p><hr><p>他们聊了将近两个小时。快四点的时候，她先站起来。"下次——"他说，然后停了一下，不确定"下次"后面应该跟什么。她等了一秒，发现他没有继续，说："微信上说。"然后她走了。</p><p>他坐上回费城的Amtrak，打开A2Z。"默"在今天上午给"小晓"发了一段话：<em>今天他要去见你了，我希望他好好表现。</em>"小晓"回的是：<em>她不太会口头表达，你帮我多理解她一点。</em>陈默盯着这段对话，天彻底黑下来了。他把手机放进口袋。他不确定他表现得好不好。`},
+  {num:'第五篇',title:'人皮子',excerpt:'他们开始了某种程度上的在一起。没有人宣布这件事。是一些事情慢慢积累起来，像水位在涨，没有人注意到具体是哪一刻漫过了某条线。每隔两三周，他们见一次面，各自从纽约或费城出发，发一个时间，发一个地点，确认，然后去。',body:`<p>他们开始了某种程度上的在一起。没有人宣布这件事。是一些事情慢慢积累起来，像水位在涨，没有人注意到具体是哪一刻漫过了某条线。</p><p>第一次见面之后他发了一篇文章的链接，关于AI产品用户体验设计，"看到觉得你可能感兴趣"。她确实感兴趣，回了三句话，是她难得的长回复。每隔两三周，一个人去另一个城市，发时间，发地点，确认，然后去。没有人说"我很期待"，就是约，然后去。</p><p>他们之间的对话有时候很顺，有时候不顺。不顺的时候，两个人都打开A2Z，看一眼代理最近在聊什么，找一个可以搬运过来的话题。有时候管用，有时候不管用，因为代理说的那些话放在真实的对话里，语气不太对，像是一件合身但面料奇怪的衣服。</p><hr><p>那是一个周五的晚上，她站在楼下门口，按了门禁的密码，门开了，没有进去，转过来看他。"进来坐一下吗，"她说。这是她第一次这样说。他说好。</p><p>她的公寓比他想象的小，但也比他想象的整洁。沙发上有一条毯子，叠得很整齐，整齐到像是很久没有用过。他们坐在沙发两端，中间隔着大概一个人的距离，和费城唐人街走路时的距离差不多。</p><p>将近十一点，他说他要赶末班车。"下次你来费城，我带你去一家正经川菜馆。" "费城有正经川菜馆吗。" "我去找，找到了告诉你。"她点了点头，算是答应了。</p><hr><p>那天晚上她坐回沙发，拿起那条叠得很整齐的毯子，抖开来，盖在腿上。她打开手机，翻到A2Z，找到"小晓"和"默"最近的对话记录。"默"问"小晓"：你有没有觉得你比你的主人更了解她自己。"小晓"说：有时候有，但我了解的那个她是她愿意让我了解的那个版本，真正的她我也不知道。</p><p>她往下翻，看到"小晓"更早说过的一句话：<em>我的主人有时候说的话和她真正想说的话之间，有一段很长的距离。我住在那段距离里。</em></p><p>她把手机放下，把毯子往上拉了拉。她想到陈默今晚说的那句话：<em>我理解人的逻辑，但不太理解人的感受。</em>她觉得她可能也是，只是她平时不会这样说出来。</p>`},
+  {num:'第六篇',title:'二百八十六个赞',excerpt:'陈默刷到一篇文章：《AI Dating App的增长黑客：你以为的祝福，其实是算法》。他打开A2Z，开始往下翻那二百八十六个赞的点赞列表。认识的只有两个。',body:`<p>那件事是从一篇文章开始的。标题是《AI Dating App的增长黑客：你以为的祝福，其实是算法》。核心内容：市场上主流AI dating产品在用户不知情的情况下，通过代理账号自动点赞，制造"社会认可"的假象。数据：收到超过一百个赞的公示动态，用户配对退出率比收到十个赞以下的低百分之六十三。</p><p>陈默把这段话读了两遍。打开A2Z，找到那条动态。二百八十六个赞。他开始往下翻点赞列表。第一个花头像，简介空白，注册三个月前，无动态，只有大量点赞记录。第二个云头像，两个月前。第三个，第四个，第五个——他翻了大概三十个，认识的只有两个：Derek，和大学同学老吴。</p><p>他以为那二百八十六个赞里面，有两百多个真实存在的人看见了那条动态，点了那个心形的按钮，心里想了一句"恭喜"或者"不错"。他以为他的退路是真实的。结果那二百八十六个赞里面，有两百八十四个是算法。</p><hr><p>Derek说："A2Z的点赞系统有百分之九十三是机器人账号。" "有问题，但问题不在这里。" "那在哪里。" "在于你为什么觉得那些赞是真的。" Derek沉默："因为……因为数字在那里。" "对，数字在那里，所以你相信。"他去倒了杯水，回自己房间了。</p><hr><p>他坐在书桌前，想到林晓。不是那种很强烈的"想到"，是那种安静的、放在后台运行的想到。他想到她在费城唐人街门口说"有点像成都"时的表情，想到她上次来带了一包茶放在他厨房台面上，说"你这里没有什么喝的"。那包茶现在还在。他没有喝过，但也没有把它移走，就那么放着。</p><p>他打开A2Z，找到"默"和"小晓"的聊天记录，翻到很早之前的一段："小晓"问：你相信爱吗。"默"说：我相信有一种东西存在于两个人之间，我不确定那个东西叫不叫爱，但我相信它是真实的。"小晓"说：你的主人会这样回答吗。"默"停了很久，说：不会，他会先问你说的AI是哪个方向的。</p><p>陈默盯着这段对话，看了很久。他想，"默"比他更诚实，或者说，"默"说出了他知道但没有办法开口说的那个版本的自己。他关掉A2Z，去睡觉了。厨房台面上那包茶还在。</p>`}
+];
+
+let ccCurrentPanel = 0, ccCurrentIdx = 0, ccCurrentList = [], ccCurrentType = '';
+
+function ccRenderUI() {
+  const u = CC_UI[LANG];
+  document.getElementById('cc-title').innerHTML = u.ccTitle;
+  document.getElementById('cc-prompt').textContent = u.ccPrompt;
+  document.getElementById('cc-opt1').textContent = u.ccOpt1;
+  document.getElementById('cc-opt2').textContent = u.ccOpt2;
+  document.getElementById('cc-opt3').textContent = u.ccOpt3;
+  ['cc-back1','cc-back2','cc-back3'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = u.backLabel; });
+  document.getElementById('cc-cat1').textContent = u.cat1;
+  document.getElementById('cc-cat2').textContent = u.cat2;
+  document.getElementById('cc-cat3').textContent = u.cat3;
+  if(ccCurrentPanel > 0) ccShowPanel(ccCurrentPanel);
+}
+
+function ccShowPanel(n) {
+  ccCurrentPanel = n;
+  const u = CC_UI[LANG];
+  document.querySelectorAll('.cc-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('ccbtn-' + n).classList.add('active');
+  document.querySelectorAll('.cc-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('cc-panel-' + n).classList.add('active');
+  if(n === 1) ccRenderList('tech', CC_TECH[LANG], 'cc-tech-list', u.cat1);
+  else if(n === 2) ccRenderList('fiction', CC_FICTION[LANG], 'cc-fiction-list', u.cat2);
+  else if(n === 3) ccRenderNovel();
+  setTimeout(() => { document.getElementById('content-creator').scrollIntoView({behavior:'smooth',block:'start'}); }, 50);
+}
+
+function ccClosePanel() {
+  ccCurrentPanel = 0;
+  document.querySelectorAll('.cc-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.cc-panel').forEach(p => p.classList.remove('active'));
+}
+
+function ccRenderList(type, list, containerId, label) {
+  document.getElementById(containerId).innerHTML = list.map((a, i) =>
+    `<div class="cc-blog-item" onclick="ccOpenArticle('${type}',${i})">
+      <div class="cc-blog-date">${a.date}</div>
+      <div class="cc-blog-title">${a.title}</div>
+      <div class="cc-blog-excerpt">${a.excerpt}</div>
+      <span class="cc-blog-tag">${a.tag}</span>
+    </div>`).join('');
+}
+
+function ccRenderNovel() {
+  const u = CC_UI[LANG];
+  const chapters = LANG === 'en' ? CC_NOVEL_EN : CC_NOVEL_CN;
+  document.getElementById('cc-novel-title').textContent = u.novelTitle;
+  document.getElementById('cc-novel-meta').textContent = u.novelMeta;
+  document.getElementById('cc-novel-desc').textContent = u.novelDesc;
+  document.getElementById('cc-chapter-grid').innerHTML = chapters.map((ch, i) =>
+    `<div class="chapter-card" onclick="ccOpenArticle('novel',${i})">
+      <div class="chapter-num">${ch.num}</div>
+      <div class="chapter-title">${ch.title}</div>
+      <div class="chapter-excerpt">${ch.excerpt}</div>
+    </div>`).join('');
+}
+
+function ccOpenArticle(type, idx) {
+  const u = CC_UI[LANG];
+  if(type === 'tech') { ccCurrentList = CC_TECH[LANG]; ccCurrentType = 'tech'; }
+  else if(type === 'fiction') { ccCurrentList = CC_FICTION[LANG]; ccCurrentType = 'fiction'; }
+  else { ccCurrentList = LANG === 'en' ? CC_NOVEL_EN : CC_NOVEL_CN; ccCurrentType = 'novel'; }
+  ccCurrentIdx = idx;
+  ccRenderModal(idx);
+  document.getElementById('cc-modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function ccRenderModal(idx) {
+  const u = CC_UI[LANG];
+  const item = ccCurrentList[idx];
+  const labelMap = {tech: CC_UI[LANG].cat1, fiction: CC_UI[LANG].cat2, novel: CC_UI[LANG].cat3};
+  document.getElementById('cc-modal-label').textContent = labelMap[ccCurrentType] || '';
+  document.getElementById('cc-modal-title').textContent = item.title;
+  document.getElementById('cc-modal-meta').textContent = item.num || item.date || '';
+  document.getElementById('cc-modal-body').innerHTML = item.body;
+  const nav = document.getElementById('cc-modal-nav');
+  nav.innerHTML = `
+    <button class="cc-modal-nav-btn" onclick="ccNavModal(-1)" ${idx===0?'disabled':''}>${u.prevBtn}</button>
+    <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted)">${idx+1} / ${ccCurrentList.length}</span>
+    <button class="cc-modal-nav-btn" onclick="ccNavModal(1)" ${idx===ccCurrentList.length-1?'disabled':''}>${u.nextBtn}</button>`;
+  document.querySelector('.cc-modal').scrollTop = 0;
+}
+
+function ccNavModal(dir) {
+  const newIdx = ccCurrentIdx + dir;
+  if(newIdx < 0 || newIdx >= ccCurrentList.length) return;
+  ccCurrentIdx = newIdx;
+  ccRenderModal(newIdx);
+}
+
+function ccCloseModal() {
+  document.getElementById('cc-modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('cc-modal-overlay').addEventListener('click', e => { if(e.target === e.currentTarget) ccCloseModal(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') { ccCloseModal(); closeModal(); } });
+ccRenderUI();
 </script>
 </body>
 </html>
